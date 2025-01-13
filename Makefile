@@ -66,3 +66,21 @@ tailwind: ## activate the tailwind watch
 	@$(SYMFONY) tailwind:build --watch
 
 dev: up tailwind ## Start to dev !
+
+## —— Doctrine & DB 🔥 ———————————————————————————————————————————————————————————————
+db-init: db-drop ## Drop and create the database
+	@$(SYMFONY) doctrine:database:create
+	@$(SYMFONY) doctrine:schema:create
+
+db-drop: ## Drop the database
+	$(SYMFONY) doctrine:database:drop --if-exists --force -vv; \
+
+
+db-create: ## Create the database using Symfony Doctrine command
+	@$(SYMFONY) doctrine:database:create -vv
+
+db-test: ## Drop and create the test database and load fixtures
+	@$(SYMFONY) --env=test doctrine:database:drop --if-exists --force
+	@$(SYMFONY) --env=test doctrine:database:create
+	@$(SYMFONY) --env=test doctrine:schema:create
+	@$(SYMFONY) --env=test doctrine:fixtures:load --no-interaction
