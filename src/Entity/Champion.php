@@ -16,6 +16,9 @@ class Champion
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(type: 'string', length: 9)]
+    private string $customId;
+
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank]
     private string $name;
@@ -65,6 +68,17 @@ class Champion
     {
         $this->name = $name;
 
+        return $this;
+    }
+
+    public function getCustomId(): string
+    {
+        return $this->customId;
+    }
+
+    public function setCustomId(string $customId): self
+    {
+        $this->customId = $customId;
         return $this;
     }
 

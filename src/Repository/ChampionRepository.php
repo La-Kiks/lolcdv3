@@ -16,28 +16,34 @@ class ChampionRepository extends ServiceEntityRepository
         parent::__construct($registry, Champion::class);
     }
 
-    //    /**
-    //     * @return Champion[] Returns an array of Champion objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function findOneByName(string $name): ?Champion
+    {
+        return $this->findOneBy(['name' => $name]);
+    }
 
-    //    public function findOneBySomeField($value): ?Champion
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    /**
+     * Check if the champion name already exists in the database.
+     *
+     * @param string $name The name of the champion.
+     * @return bool Return true if the champion name exits, else false.
+     */
+    public function exists(string $name): bool
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c.name')
+            ->where('c.name = :name')
+            ->setParameter('name', $name)
+            ->setMaxResults(1)
+        ;
+
+        $exists = $qb->getQuery()->getOneOrNullResult();
+
+        return $exists ?: false;
+    }
+
+    public function save(Champion $champion): void
+    {
+        $this->getEntityManager()->persist($champion);
+    }
+
 }
