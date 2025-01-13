@@ -23,6 +23,13 @@ class Champion
     #[Assert\NotBlank]
     private string $name;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
+    private string $alias;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $image;
+
     #[ORM\ManyToMany(targetEntity: Spell::class, inversedBy: 'champions')]
     #[ORM\JoinTable(name: 'champion_spell')]
     private Collection $spells;
@@ -79,6 +86,28 @@ class Champion
     public function setCustomId(string $customId): self
     {
         $this->customId = $customId;
+        return $this;
+    }
+
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    public function getAlias(): string
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(string $alias): self
+    {
+        $this->alias = $alias;
         return $this;
     }
 
