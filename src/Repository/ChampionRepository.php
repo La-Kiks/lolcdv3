@@ -46,4 +46,9 @@ class ChampionRepository extends ServiceEntityRepository
         $this->getEntityManager()->persist($champion);
     }
 
+    public function flush(): void
+    {
+        $this->getEntityManager()->flush();
+    }
+
 }

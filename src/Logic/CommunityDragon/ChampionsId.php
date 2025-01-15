@@ -52,9 +52,15 @@ class ChampionsId
                         if($this->validateIdAndNameAndAlias($contentJson)){
                             $countValid++;
                             $champion = new Champion();
+                            $imageUrl = sprintf('%s%s%s',
+                                'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/',
+                                $contentJson['id'],
+                                '.png')
+                            ;
                             $champion->setName($contentJson['name'])
                                 ->setAlias($contentJson['alias'])
                                 ->setCustomId($contentJson['id'])
+                                ->setImage($imageUrl)
                             ;
 
                             $this->championRepository->save($champion);
@@ -63,15 +69,16 @@ class ChampionsId
                             $countInvalid++;
                         }
 
-                        $this->logger->info('Total : ' . $countTotal);
-                        $this->logger->info('Valid : ' . $countValid);
-                        $this->logger->info('Invalid : ' . $countInvalid);
-
                     }catch (\Exception $e){
                         // JSON Url failed
                         $this->logger->error('Failed to reach the JSON URL. ' . $e->getMessage()) ;
                     }
                 }
+                $this->championRepository->flush();
+
+                $this->logger->info('Total : ' . $countTotal);
+                $this->logger->info('Valid : ' . $countValid);
+                $this->logger->info('Invalid : ' . $countInvalid);
             }
 
         } catch(\Exception $e) {

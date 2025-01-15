@@ -60,6 +60,10 @@ sf: ## List all Symfony commands or pass the parameter "c=" to run a given comma
 cc: c=c:c ## Clear the cache
 cc: sf
 
+fixtures-load: ## Load the fixtures, by default the load command purges the database. Add c='--append' to append instead
+	@$(eval c ?=)
+	@$(SYMFONY) doctrine:fixtures:load $(c)
+
 ## —— Project 🚀 ——————————————————————————————————————————————————————————————
 tailwind: ## activate the tailwind watch
 	@$(call GREEN,"The application is available for dev https://localhost")

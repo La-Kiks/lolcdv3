@@ -58,4 +58,10 @@ class SpellRepository extends ServiceEntityRepository
     {
         $this->getEntityManager()->persist($spell);
     }
+
+    public function flush(): void
+    {
+        $this->getEntityManager()->flush();
+    }
+
 }

@@ -22,11 +22,6 @@ class CreateChampionsListFromCommunityCommand extends Command
         parent::__construct();
     }
 
-    protected function configure(): void
-    {
-        $this->setHelp('This command helps you create the champions entries');
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
