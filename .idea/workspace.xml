@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Champions ID logic &amp; command">
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="DB connection resolved.&#10;All champions added.">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/information_schema.FNRwLQ.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9.xml" afterDir="false" />
@@ -18,6 +34,7 @@
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/ChampionsId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/ChampionsId.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ChampionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChampionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/SpellRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SpellRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +223,7 @@
       <updated>1736765655145</updated>
       <workItem from="1736765656406" duration="534000" />
       <workItem from="1736766214260" duration="21919000" />
-      <workItem from="1736933852837" duration="6705000" />
+      <workItem from="1736933852837" duration="7046000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -256,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736789000392</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="DB connection resolved.&#10;All champions added.">
+      <option name="closed" value="true" />
+      <created>1736940924299</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1736940924299</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +293,7 @@
     <MESSAGE value="Security Bundle" />
     <MESSAGE value="Champion, Spell, Test, Controller." />
     <MESSAGE value="Champions ID logic &amp; command" />
-    <option name="LAST_COMMIT_MESSAGE" value="Champions ID logic &amp; command" />
+    <MESSAGE value="DB connection resolved.&#10;All champions added." />
+    <option name="LAST_COMMIT_MESSAGE" value="DB connection resolved.&#10;All champions added." />
   </component>
 </project>
