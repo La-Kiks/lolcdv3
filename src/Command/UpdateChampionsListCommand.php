@@ -10,10 +10,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
-    name: 'app:create-champions-list-from-community',
+    name: 'app:update-champions-list',
     description: 'Attempt to reach Community Dragon latest list of champions ID and try to create a champion entry for each one through their JSON files.',
 )]
-class CreateChampionsListFromCommunityCommand extends Command
+class UpdateChampionsListCommand extends Command
 {
     public function __construct(
         private ChampionsId $championsId
@@ -26,7 +26,7 @@ class CreateChampionsListFromCommunityCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $this->championsId->createChampionsFromScratch();
+        $this->championsId->updateChampions();
 
         $io->success('Command executed successfully');
 

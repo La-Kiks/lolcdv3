@@ -52,7 +52,11 @@ class SpellRepository extends ServiceEntityRepository
 
         $exists = $qb->getQuery()->getOneOrNullResult();
 
-        return $exists ?: false;
+        if ($exists){
+            return true;
+        } else {
+            return false;
+        }
     }
     public function save (Spell $spell): void
     {

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Champion;
+use App\Entity\Spell;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,6 +20,26 @@ class ChampionRepository extends ServiceEntityRepository
     public function findOneByName(string $name): ?Champion
     {
         return $this->findOneBy(['name' => $name]);
+    }
+    public function findOneByAlias(string $alias): ?Champion
+    {
+        return $this->findOneBy(['alias' => $alias]);
+    }
+    public function findOneByCustomId(int $customId): ?Champion
+    {
+        return $this->findOneBy(['customId' => $customId]);
+    }
+
+    public function findOneBySpell(Spell $spell): array
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.spells', 's')
+            ->where('s = :spell')
+            ->setParameter('spell', $spell)
+            ->getQuery()
+            ->getResult()
+        ;
+        return $qb;
     }
 
     /**
@@ -38,7 +59,7 @@ class ChampionRepository extends ServiceEntityRepository
 
         $exists = $qb->getQuery()->getOneOrNullResult();
 
-        return $exists ?: false;
+        return $exists !== null;
     }
 
     public function save(Champion $champion): void

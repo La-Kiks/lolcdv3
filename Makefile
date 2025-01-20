@@ -42,6 +42,8 @@ test: ## Start tests with phpunit, pass the parameter "c=" to add options to php
 	@$(eval c ?=)
 	@$(DOCKER_COMP) exec -e APP_ENV=test php bin/phpunit $(c)
 
+db-ip: ## Get the IP of the DB to connect
+	@docker inspect lolcdv3-database-1 | grep IPAddress
 
 ## —— Composer 🧙 ——————————————————————————————————————————————————————————————
 composer: ## Run composer, pass the parameter "c=" to run a given command, example: make composer c='req symfony/orm-pack'
@@ -88,3 +90,4 @@ db-test: ## Drop and create the test database and load fixtures
 	@$(SYMFONY) --env=test doctrine:database:create
 	@$(SYMFONY) --env=test doctrine:schema:create
 	@$(SYMFONY) --env=test doctrine:fixtures:load --no-interaction
+

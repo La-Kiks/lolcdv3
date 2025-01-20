@@ -138,9 +138,10 @@ class Spell
         return $this->keyboard;
     }
 
-    public function setKeyboard(string $keyboard): void
+    public function setKeyboard(string $keyboard): self
     {
         $this->keyboard = $keyboard;
+        return $this;
     }
 
     public function getCooldowns(): array
@@ -160,9 +161,10 @@ class Spell
         return $this->image;
     }
 
-    public function setImage(string $image): void
+    public function setImage(string $image): self
     {
         $this->image = $image;
+        return $this;
     }
 
 }

@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Champion;
 use App\Logic\CommunityDragon\ChampionsId;
+use App\Logic\CommunityDragon\Spells;
+use App\Logic\Irregulars\EliseSpider;
 use App\Repository\ChampionRepository;
+use App\Repository\SpellRepository;
 use PHPUnit\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +22,9 @@ class HomeController extends AbstractController
 {
     public function __construct(
         private ChampionRepository $championRepository,
+        private SpellRepository $spellRepository,
+        private Spells $spells,
+        private EliseSpider $eliseSpider,
     )
     {
     }
@@ -27,13 +34,43 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-//        $one = $this->championRepository->findAll();
-//        dd($one);
+        // Load Spider spells
+        // $this->eliseSpider->createEliseSpider();
 
 
+
+        $zeroCds = $this->findZeroCd();
+        dd($zeroCds);
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
+    }
+
+    public function findZeroCd(): array
+    {
+        $array = [];
+        $i = 0;
+        $spells = $this->spellRepository->findAll();
+
+        foreach ($spells as $spell){
+            $cds = $spell->getCooldowns();
+
+            if(array_unique($cds) == [0]){
+                $champ = $this->championRepository->findOneBySpell($spell);
+                $champion = $champ[0];
+
+                if($champion instanceof Champion){
+                    $name = $champion->getName();
+                } else {
+                    $name = sprintf('%s %s', 'unnamed', $i);
+                }
+
+                $array[$name] = $spell->getName();
+            }
+            $i++;
+        }
+
+        return $array;
     }
 }
