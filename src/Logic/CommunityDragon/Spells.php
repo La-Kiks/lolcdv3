@@ -20,14 +20,17 @@ class Spells
     {
     }
 
-    public function aurora(): ?SpellDTO
+    public function aurora(): array
     {
         $URL = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champions/893.json";
+        $caitUrl = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champions/51.json";
+
+        $dtos = [];
 
         try {
             $response = $this->client->request(
                 'GET',
-                $URL
+                $caitUrl
             );
 
             $content = $response->toArray();
@@ -40,6 +43,7 @@ class Spells
                 "/hud/icons2d/"
             );
 
+
             // Spell infos : name, key, image, cooldowns[], champion, patch
             foreach ($content['spells'] as $spell){
                 $name = $spell['name'];
@@ -50,10 +54,18 @@ class Spells
                 );
                 $cooldowns = [];
 
-                foreach ($spell['cooldownCoefficients'] as $cooldown){
+                // TESTING AMMOs -> Seems Good
+                if($spell['ammo']['ammoRechargeTime'][0] == 0){
+                    $cooldownsArray = $spell['cooldownCoefficients'];
+                } else {
+                    $cooldownsArray = $spell['ammo']['ammoRechargeTime'];
+                }
+                //
+                foreach ($cooldownsArray as $cooldown){
                     $cooldowns[] = $cooldown;
                 }
-                // TODO : for each spell DTO save them in the DB with champion attached.
+
+
                 $spellDTO = new SpellDTO(
                     champion: $championAlias,
                     customId: $championId,
@@ -62,13 +74,15 @@ class Spells
                     imageUrl: $image,
                     cooldowns: $cooldowns
                 );
+
+                $dtos[] = $spellDTO;
             }
 
         } catch (\Exception $e){
             $this->logger->error('Failed to reach the url. ' . $e);
         }
 
-        return $spellDTO ?: null;
+        return $dtos ;
     }
     public function createSpells(): void
     {
@@ -106,8 +120,16 @@ class Spells
                     );
                     $cooldowns = [];
 
-                    // TODO : Check Cooldowns & Ammos
-                    foreach ($spell['cooldownCoefficients'] as $cooldown){
+                    //
+                    if($spell['ammo']['ammoRechargeTime'][0] == 0 ){
+                        $cooldownsArray = $spell['cooldownCoefficients'];
+                    } else {
+                        $cooldownsArray = $spell['ammo']['ammoRechargeTime'];
+                    }
+                    // TODO : R cooldowns should be 1st 3 elements
+                    // TODO : Every spell cooldowns should be first 5 elements
+                    // Few exceptions that can maybe be handle separately, Jayce, Udyr, Yuumi Q...
+                    foreach ($cooldownsArray as $cooldown){
                         $cooldowns[] = $cooldown;
                     }
 
@@ -155,6 +177,7 @@ class Spells
         }
     }
 
+    // Maybe can be used to not render spells with zero CDs with tweaks
     public function findZeroCd(): array
     {
         $array = [];

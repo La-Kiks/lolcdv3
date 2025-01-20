@@ -37,40 +37,15 @@ class HomeController extends AbstractController
         // Load Spider spells
         // $this->eliseSpider->createEliseSpider();
 
+        $test = $this->spells->aurora();
+        dd($test);
 
 
-        $zeroCds = $this->findZeroCd();
-        dd($zeroCds);
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
 
-    public function findZeroCd(): array
-    {
-        $array = [];
-        $i = 0;
-        $spells = $this->spellRepository->findAll();
 
-        foreach ($spells as $spell){
-            $cds = $spell->getCooldowns();
-
-            if(array_unique($cds) == [0]){
-                $champ = $this->championRepository->findOneBySpell($spell);
-                $champion = $champ[0];
-
-                if($champion instanceof Champion){
-                    $name = $champion->getName();
-                } else {
-                    $name = sprintf('%s %s', 'unnamed', $i);
-                }
-
-                $array[$name] = $spell->getName();
-            }
-            $i++;
-        }
-
-        return $array;
-    }
 }

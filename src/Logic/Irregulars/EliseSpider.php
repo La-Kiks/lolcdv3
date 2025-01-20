@@ -48,7 +48,7 @@ class EliseSpider
                 champion: 'Elise',
                 customId: 60,
                 name: $content['Characters/Elise/Spells/EliseSpiderQAbility/EliseSpiderQ']['mScriptName'],
-                key: 'Q',
+                key: 'q',
                 imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/elise/hud/icons2d/elisespiderq.png',
                 cooldowns: $qCooldowns
             );
@@ -57,7 +57,7 @@ class EliseSpider
                 champion: 'Elise',
                 customId: 60,
                 name: $content['Characters/Elise/Spells/EliseSpiderWAbility/EliseSpiderW']['mScriptName'],
-                key: 'W',
+                key: 'w',
                 imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/elise/hud/icons2d/elisespiderw.png',
                 cooldowns: [10, 10, 10, 10, 10]
             );
@@ -70,7 +70,7 @@ class EliseSpider
                 champion: 'Elise',
                 customId: 60,
                 name: $content['Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderE']['mScriptName'],
-                key: 'E',
+                key: 'e',
                 imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/elise/hud/icons2d/elisespidere.png',
                 cooldowns: $eCooldowns
             );

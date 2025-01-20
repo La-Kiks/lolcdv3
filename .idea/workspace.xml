@@ -4,30 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="DB connection resolved.&#10;All champions added.">
-      <change afterPath="$PROJECT_DIR$/src/Command/CreateSpellsCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Command/UpdateChampionsListCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/SpellDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/app.IXoBAA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/18018344-738e-443b-bb15-81a50e33a9a9/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Creating spells.&#10;1st morph exception with Elise.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/CreateChampionsListFromCommunityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/CreateChampionsListCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Spell.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Spell.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/ChampionsId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/ChampionsId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ChampionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChampionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SpellRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SpellRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +197,7 @@
       <workItem from="1736765656406" duration="534000" />
       <workItem from="1736766214260" duration="21919000" />
       <workItem from="1736933852837" duration="15059000" />
-      <workItem from="1737380898936" duration="9657000" />
+      <workItem from="1737380898936" duration="11727000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -282,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736940933826</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Creating spells.&#10;1st morph exception with Elise.">
+      <option name="closed" value="true" />
+      <created>1737390774332</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737390774332</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +284,7 @@
     <MESSAGE value="Champion, Spell, Test, Controller." />
     <MESSAGE value="Champions ID logic &amp; command" />
     <MESSAGE value="DB connection resolved.&#10;All champions added." />
-    <option name="LAST_COMMIT_MESSAGE" value="DB connection resolved.&#10;All champions added." />
+    <MESSAGE value="Creating spells.&#10;1st morph exception with Elise." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating spells.&#10;1st morph exception with Elise." />
   </component>
 </project>
