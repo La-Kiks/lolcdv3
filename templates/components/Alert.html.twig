@@ -1,0 +1,18 @@
+{% set alert = html_cva(
+    base='p-4 text-center text-sm dark:bg-gray-800',
+    variants={
+        type: {
+            info: 'text-blue-800 bg-blue-50 dark:text-blue-400',
+            danger: 'text-red-800 bg-red-50 dark:text-red-400',
+            success: 'text-green-800 bg-green-50 dark:text-green-400',
+            warning: 'text-yellow-800 bg-yellow-50 dark:text-yellow-300',
+            gray: 'text-gray-800 bg-gray-50 dark:text-gray-300',
+        }
+    }
+) %}
+
+<div id="flash-box"{{ attributes.defaults({class: alert.apply({'type': type}) }) }}>
+    <!-- component html -->
+    <span class="font-medium">{{ type|u.title() }}</span>
+    {% block content %}{% endblock %}
+</div>

@@ -120,17 +120,22 @@ class Spells
                     );
                     $cooldowns = [];
 
-                    //
+                    // Handling case where Ammo is the expected cooldown.
                     if($spell['ammo']['ammoRechargeTime'][0] == 0 ){
                         $cooldownsArray = $spell['cooldownCoefficients'];
                     } else {
                         $cooldownsArray = $spell['ammo']['ammoRechargeTime'];
                     }
-                    // TODO : R cooldowns should be 1st 3 elements
-                    // TODO : Every spell cooldowns should be first 5 elements
-                    // Few exceptions that can maybe be handle separately, Jayce, Udyr, Yuumi Q...
+
                     foreach ($cooldownsArray as $cooldown){
                         $cooldowns[] = $cooldown;
+                    }
+
+                    // Making sure basic spells have 5 ranks & ultimates 3 ranks. Exceptions will be handled separately.
+                    if ($key === 'r'){
+                        array_splice($cooldowns, 3);
+                    } else {
+                        array_splice($cooldowns, 5);
                     }
 
                     $spellDTO = new SpellDTO(
@@ -177,7 +182,7 @@ class Spells
         }
     }
 
-    // Maybe can be used to not render spells with zero CDs with tweaks
+    // Maybe can be used to not render spells with zero CDs with tweaks, or specify CD = none.
     public function findZeroCd(): array
     {
         $array = [];

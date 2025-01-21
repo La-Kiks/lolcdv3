@@ -6,13 +6,18 @@ use App\Entity\Champion;
 use App\Entity\Spell;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @extends ServiceEntityRepository<Champion>
  */
 class ChampionRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(
+        ManagerRegistry                     $registry,
+        private readonly PaginatorInterface $paginator,
+    )
     {
         parent::__construct($registry, Champion::class);
     }
@@ -70,6 +75,18 @@ class ChampionRepository extends ServiceEntityRepository
     public function flush(): void
     {
         $this->getEntityManager()->flush();
+    }
+
+    public function pagination(int $page, int $limit): PaginationInterface
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c.id, c.customId, c.name, c.alias, c.image')
+            ->orderBy('c.name', 'ASC')
+            ->getQuery()
+            ->getArrayResult()
+        ;
+
+        return $this->paginator->paginate(target: $qb, page: $page, limit: $limit );
     }
 
 }

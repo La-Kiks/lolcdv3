@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Champions {% endblock %}
+
+{% block custom_header %}
+    {# rel links for pagination #}
+    {{ knp_pagination_rel_links(champions) }}
+{% endblock %}
+{% block body %}
+
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-4 py-3">Riot Id</th>
+                    <th scope="col" class="px-4 py-3">Name</th>
+                    <th scope="col" class="px-4 py-3">Alias</th>
+                    <th scope="col" class="px-4 py-3">Image</th>
+                </tr>
+                </thead>
+
+                {# table body #}
+                {% for champion in champions %}
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3">{{ champion.customId }}</td>
+                        <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ champion.name }}</td>
+                        <td class="px-4 py-3" >{{ champion.alias }}</td>
+                        <td>
+                            <img class="px-4 py-3 h-24" src="{{ champion.image }}" alt="image of a champion">
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
+                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                        Total results :
+                        <span class="font-semibold text-gray-900 dark:text-white">{{ champions.getTotalItemCount }}</span>
+                    </span>
+            {{ knp_pagination_render(champions) }}
+        </nav>
+    </div>
+</section>
+
+{% endblock %}

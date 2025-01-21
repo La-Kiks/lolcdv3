@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Spells {% endblock %}
+
+{% block custom_header %}
+    {# rel links for pagination #}
+    {{ knp_pagination_rel_links(spells) }}
+{% endblock %}
+{% block body %}
+
+    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+        <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-4 py-3">Id</th>
+                        <th scope="col" class="px-4 py-3">Name</th>
+                        <th scope="col" class="px-4 py-3">Keyboard</th>
+                        <th scope="col" class="px-4 py-3">Image</th>
+                        <th scope="col" class="px-4 py-3">Cooldowns</th>
+                    </tr>
+                    </thead>
+
+                    {# table body #}
+                    {% for spell in spells %}
+                        <tr class="border-b dark:border-gray-700">
+                            <td class="px-4 py-3">{{ spell.id }}</td>
+                            <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ spell.name }}</td>
+                            <td class="px-4 py-3" >{{ spell.keyboard }}</td>
+                            <td>
+                                <img class="px-4 py-3 h-24" src="{{ spell.image }}" alt="image of a champion">
+                            </td>
+                            <td class="px-4 py-3" >
+                            {% for cooldown in spell.cooldowns %}
+                                {{ cooldown }}
+                            {% endfor %}
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
+                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                        Total results :
+                        <span class="font-semibold text-gray-900 dark:text-white">{{ spells.getTotalItemCount }}</span>
+                    </span>
+                {{ knp_pagination_render(spells) }}
+            </nav>
+        </div>
+    </section>
+
+{% endblock %}
