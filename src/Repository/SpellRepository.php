@@ -40,6 +40,21 @@ class SpellRepository extends ServiceEntityRepository
         return $qb;
     }
 
+    public function findOneByChampionAndKey(Champion $champion, string $key): Spell
+    {
+        $qb = $this->createQueryBuilder('s')
+            ->innerJoin('s.champions', 'c')
+            ->where('c = :champion')
+            ->andWhere('s.keyboard = :key')
+            ->setParameter('champion', $champion)
+            ->setParameter('key', $key)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+
+        return $qb;
+    }
+
     /**
      * Check if the spell name already exists in the database.
      *

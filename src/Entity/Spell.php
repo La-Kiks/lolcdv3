@@ -37,6 +37,9 @@ class Spell
     #[ORM\Column(type: 'string', length: 255)]
     private string $patch;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $affectedByCdr = true;
+
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\NotNull]
     private DateTimeImmutable $created_at;
@@ -164,6 +167,17 @@ class Spell
     public function setImage(string $image): self
     {
         $this->image = $image;
+        return $this;
+    }
+
+    public function isAffectedByCdr(): bool
+    {
+        return $this->affectedByCdr;
+    }
+
+    public function setAffectedByCdr(bool $affectedByCdr): self
+    {
+        $this->affectedByCdr = $affectedByCdr;
         return $this;
     }
 

@@ -24,6 +24,7 @@ class ChampionRepository extends ServiceEntityRepository
 
     public function findOneByName(string $name): ?Champion
     {
+
         return $this->findOneBy(['name' => $name]);
     }
     public function findOneByAlias(string $alias): ?Champion
