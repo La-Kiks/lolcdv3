@@ -22,7 +22,7 @@ class SpellRepository extends ServiceEntityRepository
         parent::__construct($registry, Spell::class);
     }
 
-    public function findOneByName(string $name): Spell
+    public function findOneByName(string $name): ?Spell
     {
         return $this->findOneBy(['name' => $name]);
     }

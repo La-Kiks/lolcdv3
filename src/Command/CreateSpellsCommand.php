@@ -27,7 +27,7 @@ class CreateSpellsCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $this->spells->createSpells();
+        $this->spells->createOrUpdateSpells();
 
         $io->success('Command executed successfully');
 

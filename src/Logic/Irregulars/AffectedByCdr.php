@@ -35,21 +35,31 @@ class AffectedByCdr
         ];
 
         $loop = 0;
-        $valid = 0;
+        $updated = 0;
+        $champsList = [];
+        $spellsList = [];
         foreach ($notAffectedByCdr as $championName => $keyboard){
             $champion = $this->championRepository->findOneByName($championName);
 
             if($champion) {
-                $this->logger->info(sprintf('%s %s', 'Found champion :', $champion->getName()));
                 $spell = $this->spellRepository->findOneByChampionAndKey(champion: $champion, key: $keyboard);
-                $this->logger->info(sprintf('%s %s', 'Found spell :', $spell->getName()));
-                $spell->setAffectedByCdr(false);
-                $this->spellRepository->save($spell);
-                $valid++;
+
+                $champsList[] = $champion->getName();
+                $spellsList[] = $spell->getName();
+
+                if ($spell->isAffectedByCdr()){
+                    $spell->setAffectedByCdr(false);
+                    $this->spellRepository->save($spell);
+                    $updated++;
+                }
+
             }
             $loop++;
         }
         $this->spellRepository->flush();
-        $this->logger->info(sprintf('%s %s %s %s', 'Loop :', $loop, 'Valid : ', $valid));
+
+        $this->logger->info(sprintf('%s %s', 'Champions list :', implode(", ", $champsList)));
+        $this->logger->info(sprintf('%s %s', 'Spells list :', implode(", ", $spellsList)));
+        $this->logger->info(sprintf('%s %s %s %s', 'Loop :', $loop, 'Updated : ', $updated));
     }
 }

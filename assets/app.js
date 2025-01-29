@@ -7,4 +7,5 @@
 import './styles/app.css';
 import 'flowbite';
 import './scripts/darkmode.js';
+
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

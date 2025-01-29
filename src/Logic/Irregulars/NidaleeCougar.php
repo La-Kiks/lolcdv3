@@ -11,7 +11,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 // TODO : Fix Patch input for spell database
 // TODO : Find a way to automatize the Spider W cooldowns (hardcoded atm).
-class EliseSpider
+class NidaleeCougar
 {
     public function __construct(
         private HttpClientInterface $client,
@@ -23,55 +23,59 @@ class EliseSpider
 
     }
 
-    public function createEliseSpider(): void
+    public function createNidaleeCougar(): void
     {
-        $URL_ELISE = "https://raw.communitydragon.org/latest/game/data/characters/elise/elise.bin.json";
+        $URL_NIDALEE = "https://raw.communitydragon.org/latest/game/data/characters/nidalee/nidalee.bin.json";
 
         try {
             $response = $this->client->request(
                 'GET',
-                $URL_ELISE,
+                $URL_NIDALEE,
             );
 
             $content = $response->toArray();
 
-            // Step 1 Get Elise Champion - Elise - 60
-            $championElise = $this->championRepository->findOneByAlias('Elise');
+            // Step 1 Get Champion - Nidalee 76
+            $championNidalee = $this->championRepository->findOneByAlias('Nidalee');
 
-            //Step 2 prepare spider spells
+            //Step 2 prepare  spells
             // Q
-            $array = $content['Characters/Elise/Spells/EliseSpiderQAbility/EliseSpiderQ']['mSpell']['cooldownTime'];
+            $array = $content['Characters/Nidalee/Spells/Takedown']['mSpell']['cooldownTime'];
             $arraySliced = array_slice($array, 1, 5);
             $qCooldowns = array_values($arraySliced);
 
             $qSpell = new SpellDTO(
-                champion: 'Elise',
-                customId: 60,
-                name: $content['Characters/Elise/Spells/EliseSpiderQAbility/EliseSpiderQ']['mScriptName'],
+                champion: 'Nidalee',
+                customId: 76,
+                name: $content['Characters/Nidalee/Spells/Takedown']['mScriptName'],
                 key: 'q',
-                imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/elise/hud/icons2d/elisespiderq.png',
+                imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/nidalee/hud/icons2d/nidalee_q2.png',
                 cooldowns: $qCooldowns
             );
             // W
+            $array = $content['Characters/Nidalee/Spells/Pounce']['mSpell']['cooldownTime'];
+            $arraySliced = array_slice($array, 1, 5);
+            $wCooldowns = array_values($arraySliced);
+
             $wSpell = new SpellDTO(
-                champion: 'Elise',
-                customId: 60,
-                name: $content['Characters/Elise/Spells/EliseSpiderWAbility/EliseSpiderW']['mScriptName'],
+                champion: 'Nidalee',
+                customId: 76,
+                name: $content['Characters/Nidalee/Spells/Pounce']['mScriptName'],
                 key: 'w',
-                imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/elise/hud/icons2d/elisespiderw.png',
-                cooldowns: [10, 10, 10, 10, 10]
+                imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/nidalee/hud/icons2d/nidalee_w2.png',
+                cooldowns: $wCooldowns
             );
             // E
-            $array = $content['Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderE']['mSpell']['cooldownTime'];
+            $array = $content['Characters/Nidalee/Spells/Swipe']['mSpell']['cooldownTime'];
             $arraySliced = array_slice($array, 1, 5);
             $eCooldowns = array_values($arraySliced);
 
             $eSpell = new SpellDTO(
-                champion: 'Elise',
-                customId: 60,
-                name: $content['Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderE']['mScriptName'],
+                champion: 'Nidalee',
+                customId: 76,
+                name: $content['Characters/Nidalee/Spells/Swipe']['mScriptName'],
                 key: 'e',
-                imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/elise/hud/icons2d/elisespidere.png',
+                imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/nidalee/hud/icons2d/nidalee_e2.png',
                 cooldowns: $eCooldowns
             );
 
@@ -88,10 +92,10 @@ class EliseSpider
                         ->setCooldowns($item->cooldowns)
                         ->setPatch('latest')
                         ->setKeyboard($item->key)
-                        ->addChampion($championElise)
+                        ->addChampion($championNidalee)
                     ;
 
-                    $championElise->addSpell($spell);
+                    $championNidalee->addSpell($spell);
 
                     $this->spellRepository->save($spell);
 
@@ -104,7 +108,7 @@ class EliseSpider
 
 
         } catch (\Exception $e){
-            $this->logger->error('Failed to get data from JSON for Elise' . $e->getMessage());
+            $this->logger->error('Failed to get data from JSON' . $e->getMessage());
         }
     }
 }

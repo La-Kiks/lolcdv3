@@ -20,76 +20,16 @@ class Spells
     {
     }
 
-    public function aurora(): array
-    {
-        $URL = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champions/893.json";
-        $caitUrl = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champions/51.json";
-
-        $dtos = [];
-
-        try {
-            $response = $this->client->request(
-                'GET',
-                $caitUrl
-            );
-
-            $content = $response->toArray();
-
-            $championAlias = strtolower($content['alias']);
-            $championId = $content['id'];
-            $baseImgUrl = sprintf('%s%s%s',
-                "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/",
-                $championAlias,
-                "/hud/icons2d/"
-            );
-
-
-            // Spell infos : name, key, image, cooldowns[], champion, patch
-            foreach ($content['spells'] as $spell){
-                $name = $spell['name'];
-                $key = $spell['spellKey'];
-                $image = sprintf('%s%s',
-                    $baseImgUrl,
-                    strtolower(basename($spell['abilityIconPath']))
-                );
-                $cooldowns = [];
-
-                // TESTING AMMOs -> Seems Good
-                if($spell['ammo']['ammoRechargeTime'][0] == 0){
-                    $cooldownsArray = $spell['cooldownCoefficients'];
-                } else {
-                    $cooldownsArray = $spell['ammo']['ammoRechargeTime'];
-                }
-                //
-                foreach ($cooldownsArray as $cooldown){
-                    $cooldowns[] = $cooldown;
-                }
-
-
-                $spellDTO = new SpellDTO(
-                    champion: $championAlias,
-                    customId: $championId,
-                    name: $name,
-                    key: $key,
-                    imageUrl: $image,
-                    cooldowns: $cooldowns
-                );
-
-                $dtos[] = $spellDTO;
-            }
-
-        } catch (\Exception $e){
-            $this->logger->error('Failed to reach the url. ' . $e);
-        }
-
-        return $dtos ;
-    }
-    public function createSpells(): void
+    public function createOrUpdateSpells(): void
     {
         // Step 1 get all the champions from database
         $champions = $this->championRepository->findAll();
 
         $baseUrl = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champions/";
+
+        // Trackers
+        $spellsCreated = 0;
+        $spellsUpdated = 0;
 
         // Step 2 loop through each champion
         foreach ($champions as $champion){
@@ -120,8 +60,9 @@ class Spells
                     );
                     $cooldowns = [];
 
-                    // Handling case where Ammo is the expected cooldown.
-                    if($spell['ammo']['ammoRechargeTime'][0] == 0 ){
+                    // Handling case where Ammo is the expected cooldown. If ammo CD < basic CD => choose basic CD
+                    // When ammo is present it can be negative, zero or really short. Shorter than base CD.
+                    if($spell['ammo']['ammoRechargeTime'][0] < $spell['cooldownCoefficients'][0] ){
                         $cooldownsArray = $spell['cooldownCoefficients'];
                     } else {
                         $cooldownsArray = $spell['ammo']['ammoRechargeTime'];
@@ -163,11 +104,30 @@ class Spells
                         $champion->addSpell($newSpell);
 
                         $this->spellRepository->save($newSpell);
+                        $this->logger->info(sprintf('%s %s.', 'Spell created :', $spellDTO->name));
+                        $spellsCreated++;
+
+                    } else{
+                        $spellToEdit = $this->spellRepository->findOneByName($spellDTO->name);
+                        $spellToEditCooldowns = $spellToEdit->getCooldowns();
+
+                        if($spellToEditCooldowns[0] != $spellDTO->cooldowns[0]){
+                            $spellToEdit->setCooldowns($spellDTO->cooldowns)
+                                ->setPatch('Updated')
+                            ;
+
+                            $this->spellRepository->save($spellToEdit);
+                            $this->logger->info(sprintf('%s %s.', 'Spell updated :', $spellDTO->name));
+                            $spellsUpdated++;
+
+                        }
                     }
 
                 }
 
                 $this->spellRepository->flush();
+
+                $this->logger->info(sprintf('Spells info : created %s, updated %s.', $spellsCreated, $spellsUpdated));
 
             } catch (\Exception $e) {
                 $this->logger->error(
