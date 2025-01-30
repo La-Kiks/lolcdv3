@@ -9,8 +9,7 @@ use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-// TODO : Fix Patch input for spell database
-// TODO : Find a way to automatize the Spider W cooldowns (hardcoded atm).
+
 class Jayce
 {
     public function __construct(
@@ -43,28 +42,31 @@ class Jayce
             $currentQSpell = $this->spellRepository->findOneByName('To the Skies! / Shock Blast');
             $currentQCooldowns = $currentQSpell->getCooldowns();
 
-            $sixthQ = $this->sixthElement($currentQCooldowns);
-            $currentQCooldowns[] = $sixthQ;
-            $currentQSpell->setCooldowns($currentQCooldowns);
-            $this->spellRepository->save($currentQSpell);
+            if($sixthQ = $this->sixthElement($currentQCooldowns)){
+                $currentQCooldowns[] = $sixthQ;
+                $currentQSpell->setCooldowns($currentQCooldowns);
+                $this->spellRepository->save($currentQSpell);
+            };
 
             // Lightning Field / Hyper Charge
             $currentWSpell = $this->spellRepository->findOneByName('Lightning Field / Hyper Charge');
             $currentWCooldowns = $currentWSpell->getCooldowns();
 
-            $sixthW = $this->sixthElement($currentWCooldowns);
-            $currentWCooldowns[] = $sixthW;
-            $currentWSpell->setCooldowns($currentWCooldowns);
-            $this->spellRepository->save($currentWSpell);
+            if($sixthW = $this->sixthElement($currentWCooldowns)){
+                $currentWCooldowns[] = $sixthW;
+                $currentWSpell->setCooldowns($currentWCooldowns);
+                $this->spellRepository->save($currentWSpell);
+            }
 
             // Thundering Blow / Acceleration Gate
             $currentESpell = $this->spellRepository->findOneByName('Thundering Blow / Acceleration Gate');
             $currentECooldowns = $currentESpell->getCooldowns();
 
-            $sixthE = $this->sixthElement($currentECooldowns);
-            $currentECooldowns[] = $sixthE;
-            $currentESpell->setCooldowns($currentECooldowns);
-            $this->spellRepository->save($currentESpell);
+            if($sixthE = $this->sixthElement($currentECooldowns)){
+                $currentECooldowns[] = $sixthE;
+                $currentESpell->setCooldowns($currentECooldowns);
+                $this->spellRepository->save($currentESpell);
+            }
 
             // R To edit to one Rank => 1 CD
             $currentRSpell = $this->spellRepository->findOneByChampionAndKey($champion, 'r');

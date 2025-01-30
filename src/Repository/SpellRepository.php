@@ -40,6 +40,12 @@ class SpellRepository extends ServiceEntityRepository
         return $qb;
     }
 
+    /**
+     * Be aware some champions have multi spells per key.
+     * @param Champion $champion
+     * @param string $key
+     * @return Spell
+     */
     public function findOneByChampionAndKey(Champion $champion, string $key): Spell
     {
         $qb = $this->createQueryBuilder('s')
@@ -100,4 +106,8 @@ class SpellRepository extends ServiceEntityRepository
         return $this->paginator->paginate(target: $qb, page: $page, limit: $limit );
     }
 
+    public function delete(Spell $spell): void
+    {
+        $this->getEntityManager()->remove($spell);
+    }
 }

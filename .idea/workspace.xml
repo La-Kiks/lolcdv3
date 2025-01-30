@@ -4,27 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="1st view (DRY later)&#10;+ Affected by CDR to false exceptions.">
-      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/AurelionSol.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/NidaleeCougar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Aphelios.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Belveth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Kalista.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Karma.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Reksai.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Tahmkench.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Yuumi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/CreateSpellsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/CreateSpellsCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Command/UpdateSpellsExceptionsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/UpdateSpellsExceptionsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/AffectedByCdr.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/AffectedByCdr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/AurelionSol.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/AurelionSol.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ChampionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChampionRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/SpellRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SpellRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +223,8 @@
       <workItem from="1737474725974" duration="17000" />
       <workItem from="1737538039362" duration="24096000" />
       <workItem from="1738063039519" duration="8938000" />
-      <workItem from="1738144094357" duration="10601000" />
+      <workItem from="1738144094357" duration="14494000" />
+      <workItem from="1738237966814" duration="12328000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -328,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737568788657</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="More exceptions : Aurelion, Jayce, Nida">
+      <option name="closed" value="true" />
+      <created>1738159460867</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1738159460867</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,6 +347,7 @@
     <MESSAGE value="Handing the basic case where Ammo Recharge Time exists and should replace the Cooldown Coefficient." />
     <MESSAGE value="Implementing pagination &amp; views for dev." />
     <MESSAGE value="1st view (DRY later)&#10;+ Affected by CDR to false exceptions." />
-    <option name="LAST_COMMIT_MESSAGE" value="1st view (DRY later)&#10;+ Affected by CDR to false exceptions." />
+    <MESSAGE value="More exceptions : Aurelion, Jayce, Nida" />
+    <option name="LAST_COMMIT_MESSAGE" value="More exceptions : Aurelion, Jayce, Nida" />
   </component>
 </project>

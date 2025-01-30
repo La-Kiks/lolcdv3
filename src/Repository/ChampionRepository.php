@@ -78,6 +78,11 @@ class ChampionRepository extends ServiceEntityRepository
         $this->getEntityManager()->flush();
     }
 
+    public function delete(Champion $champion): void
+    {
+        $this->getEntityManager()->remove($champion);
+    }
+
     public function pagination(int $page, int $limit): PaginationInterface
     {
         $qb = $this->createQueryBuilder('c')

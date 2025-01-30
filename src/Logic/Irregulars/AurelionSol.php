@@ -9,8 +9,7 @@ use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-// TODO : Fix Patch input for spell database
-// TODO : Find a way to automatize the Spider W cooldowns (hardcoded atm).
+
 class AurelionSol
 {
     public function __construct(

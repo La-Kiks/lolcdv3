@@ -3,10 +3,17 @@
 namespace App\Command;
 
 use App\Logic\Irregulars\AffectedByCdr;
+use App\Logic\Irregulars\Aphelios;
 use App\Logic\Irregulars\AurelionSol;
+use App\Logic\Irregulars\Belveth;
 use App\Logic\Irregulars\EliseSpider;
 use App\Logic\Irregulars\Jayce;
+use App\Logic\Irregulars\Kalista;
+use App\Logic\Irregulars\Karma;
 use App\Logic\Irregulars\NidaleeCougar;
+use App\Logic\Irregulars\Reksai;
+use App\Logic\Irregulars\Tahmkench;
+use App\Logic\Irregulars\Yuumi;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,6 +32,13 @@ class UpdateSpellsExceptionsCommand extends Command
         private readonly NidaleeCougar $nidaleeCougar,
         private readonly AurelionSol $aurelionSol,
         private readonly Jayce $jayce,
+        private readonly Reksai $reksai,
+        private readonly Karma $karma,
+        private readonly Aphelios $aphelios,
+        private readonly Tahmkench $tahmkench,
+        private readonly Yuumi $yuumi,
+        private readonly Belveth $belveth,
+        private readonly Kalista $kalista,
     )
     {
         parent::__construct();
@@ -43,6 +57,20 @@ class UpdateSpellsExceptionsCommand extends Command
         // $this->aurelionSol->createAurelionSol();
 
         // $this->jayce->createJayce();
+
+        //$this->reksai->createReksai();
+
+        //$this->karma->createKarma();
+
+        // $this->aphelios->createAphelios();
+
+        // $this->tahmkench->createTahmKench();
+
+        // $this->yuumi->createYuumi();
+
+        // $this->belveth->createBelveth();
+
+        // $this->kalista->createKalista();
 
         $io->success('Command executed successfully');
 
