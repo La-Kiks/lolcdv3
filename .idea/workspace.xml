@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="More exceptions, all.">
-      <change afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Udyr.php" afterDir="false" />
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Last exceptions -&gt; udyr.&#10;Editing QB to take name &amp; alias and ignore case when searching + ordering spell in QWER order.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UpdateSpellsExceptionsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/UpdateSpellsExceptionsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ChampionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChampionRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/testpage.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +215,7 @@
       <workItem from="1738144094357" duration="14494000" />
       <workItem from="1738237966814" duration="12681000" />
       <workItem from="1738257493927" duration="52000" />
-      <workItem from="1738331859952" duration="7737000" />
+      <workItem from="1738331859952" duration="11049000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -334,7 +329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738257379667</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Last exceptions -&gt; udyr.&#10;Editing QB to take name &amp; alias and ignore case when searching + ordering spell in QWER order.">
+      <option name="closed" value="true" />
+      <created>1738347551597</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1738347551597</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +356,7 @@
     <MESSAGE value="1st view (DRY later)&#10;+ Affected by CDR to false exceptions." />
     <MESSAGE value="More exceptions : Aurelion, Jayce, Nida" />
     <MESSAGE value="More exceptions, all." />
-    <option name="LAST_COMMIT_MESSAGE" value="More exceptions, all." />
+    <MESSAGE value="Last exceptions -&gt; udyr.&#10;Editing QB to take name &amp; alias and ignore case when searching + ordering spell in QWER order." />
+    <option name="LAST_COMMIT_MESSAGE" value="Last exceptions -&gt; udyr.&#10;Editing QB to take name &amp; alias and ignore case when searching + ordering spell in QWER order." />
   </component>
 </project>

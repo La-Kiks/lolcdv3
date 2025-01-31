@@ -257,28 +257,30 @@
 
     {# Champion view #}
     <div class="p-1 md:ml-64 overflow-x-auto ">
-        <div class="grid grid-cols-12 my-2 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
         {% if championOne|default %}
             <div class="col-span-1 items-center justify-center m-auto">
                 <img class="h-14 min-w-14" src="{{ championOne.image }}" alt="Image of the champion.">
             </div>
             {% if spellsOne|default %}
-
-                {% set count = 0 %}
                 {# Col 12 spell image + rank 5 #}
-                {% if spellsOne[count].cooldowns|length == 6 %}
-                <div class="grid  grid-cols-7 col-span-11">
-                {% else %}
-                <div class="grid md:grid-cols-12 grid-cols-6 col-span-11">
-                {% endif %}
-                {% set count = count + 1 %}
-
+                <div class="grid grid-cols-12 col-span-11">
+                    {% set colCount = 0 %}
                     {% for spell in spellsOne  %}
+                        {% if colCount + spell.cooldowns|length > 11 %}
+                            {% set span = 12 - colCount %}
+                            {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                            {% set colCount = 0 %}
+                        {% endif %}
                         <div class="col-span-1">
                             <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                         </div>
+                        {% set colCount = colCount + 1 %}
                         {% for cooldown in spell.cooldowns %}
-                            <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                            {% set colCount = colCount + 1 %}
+                            <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                 {% if spell.affectedByCdr %}
                                     {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                     {{ (cooldown * 100 / (100 + hasteOne)) | round(1) }}
@@ -295,7 +297,7 @@
         </div>
 
     {# Champ 2 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
         {% if championTwo|default %}
             <div class="col-span-1 items-center justify-center m-auto">
                 <img class="h-14 min-w-14" src="{{ championTwo.image }}" alt="Image of the champion.">
@@ -303,20 +305,29 @@
             {% if spellsTwo|default %}
                 {# Col 12 spell image + rank 5 #}
                 <div class="grid grid-cols-12 col-span-11">
+                    {% set colCount = 0 %}
                     {% for spell in spellsTwo  %}
+                        {% if colCount + spell.cooldowns|length > 11 %}
+                            {% set span = 12 - colCount %}
+                            {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                            {% set colCount = 0 %}
+                        {% endif %}
                         <div class="col-span-1">
                             <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                         </div>
+                        {% set colCount = colCount + 1 %}
 
                         {% for cooldown in spell.cooldowns %}
-                            <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                            {% set colCount = colCount + 1 %}
+                            <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                 {% if spell.affectedByCdr %}
                                     {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                     {{ (cooldown * 100 / (100 + hasteTwo)) | round(1) }}
                                 {% else %}
                                     {{ cooldown }}
                                 {% endif %}
-
                             </div>
                         {% endfor %}
 
@@ -327,7 +338,7 @@
         </div>
 
         {# Champ 3 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
             {% if championThree|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championThree.image }}" alt="Image of the champion.">
@@ -335,13 +346,23 @@
                 {% if spellsThree|default %}
                     {# Col 12 spell image + rank 5 #}
                     <div class="grid grid-cols-12 col-span-11">
+                        {% set colCount = 0 %}
                         {% for spell in spellsThree  %}
+                            {% if colCount + spell.cooldowns|length > 11 %}
+                                {% set span = 12 - colCount %}
+                                {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                                {% set colCount = 0 %}
+                            {% endif %}
                             <div class="col-span-1">
                                 <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                             </div>
+                            {% set colCount = colCount + 1 %}
 
                             {% for cooldown in spell.cooldowns %}
-                                <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                {% set colCount = colCount + 1 %}
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteThree)) | round(1) }}
@@ -359,7 +380,7 @@
         </div>
 
         {# Champ 4 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
             {% if championFour|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championFour.image }}" alt="Image of the champion.">
@@ -367,13 +388,23 @@
                 {% if spellsFour|default %}
                     {# Col 12 spell image + rank 5 #}
                     <div class="grid grid-cols-12 col-span-11">
+                        {% set colCount = 0 %}
                         {% for spell in spellsFour  %}
+                            {% if colCount + spell.cooldowns|length > 11 %}
+                                {% set span = 12 - colCount %}
+                                {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                                {% set colCount = 0 %}
+                            {% endif %}
                             <div class="col-span-1">
                                 <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                             </div>
+                            {% set colCount = colCount + 1 %}
 
                             {% for cooldown in spell.cooldowns %}
-                                <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                {% set colCount = colCount + 1 %}
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteFour)) | round(1) }}
@@ -391,7 +422,7 @@
         </div>
 
         {# Champ 5 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
             {% if championFive|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championFive.image }}" alt="Image of the champion.">
@@ -399,13 +430,23 @@
                 {% if spellsFive|default %}
                     {# Col 12 spell image + rank 5 #}
                     <div class="grid grid-cols-12 col-span-11">
+                        {% set colCount = 0 %}
                         {% for spell in spellsFive  %}
+                            {% if colCount + spell.cooldowns|length > 11 %}
+                                {% set span = 12 - colCount %}
+                                {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                                {% set colCount = 0 %}
+                            {% endif %}
                             <div class="col-span-1">
                                 <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                             </div>
+                            {% set colCount = colCount + 1 %}
 
                             {% for cooldown in spell.cooldowns %}
-                                <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                {% set colCount = colCount + 1 %}
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteFive)) | round(1) }}
@@ -424,7 +465,7 @@
 
 
         {# Champ 6 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
             {% if championSix|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championSix.image }}" alt="Image of the champion.">
@@ -432,13 +473,23 @@
                 {% if spellsSix|default %}
                     {# Col 12 spell image + rank 5 #}
                     <div class="grid grid-cols-12 col-span-11">
+                        {% set colCount = 0 %}
                         {% for spell in spellsSix  %}
+                            {% if colCount + spell.cooldowns|length > 11 %}
+                                {% set span = 12 - colCount %}
+                                {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                                {% set colCount = 0 %}
+                            {% endif %}
                             <div class="col-span-1">
                                 <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                             </div>
+                            {% set colCount = colCount + 1 %}
 
                             {% for cooldown in spell.cooldowns %}
-                                <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                {% set colCount = colCount + 1 %}
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteSix)) | round(1) }}
@@ -456,7 +507,7 @@
         </div>
 
         {# Champ 7 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
             {% if championSeven|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championSeven.image }}" alt="Image of the champion.">
@@ -464,13 +515,23 @@
                 {% if spellsSeven|default %}
                     {# Col 12 spell image + rank 5 #}
                     <div class="grid grid-cols-12 col-span-11">
+                        {% set colCount = 0 %}
                         {% for spell in spellsSeven  %}
+                            {% if colCount + spell.cooldowns|length > 11 %}
+                                {% set span = 12 - colCount %}
+                                {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                                {% set colCount = 0 %}
+                            {% endif %}
                             <div class="col-span-1">
                                 <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                             </div>
+                            {% set colCount = colCount + 1 %}
 
                             {% for cooldown in spell.cooldowns %}
-                                <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                {% set colCount = colCount + 1 %}
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteSeven)) | round(1) }}
@@ -488,7 +549,7 @@
         </div>
 
         {# Champ 8 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
             {% if championEight|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championEight.image }}" alt="Image of the champion.">
@@ -496,13 +557,23 @@
                 {% if spellsEight|default %}
                     {# Col 12 spell image + rank 5 #}
                     <div class="grid grid-cols-12 col-span-11">
+                        {% set colCount = 0 %}
                         {% for spell in spellsEight  %}
+                            {% if colCount + spell.cooldowns|length > 11 %}
+                                {% set span = 12 - colCount %}
+                                {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                                {% set colCount = 0 %}
+                            {% endif %}
                             <div class="col-span-1">
                                 <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                             </div>
+                            {% set colCount = colCount + 1 %}
 
                             {% for cooldown in spell.cooldowns %}
-                                <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                {% set colCount = colCount + 1 %}
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteEight)) | round(1) }}
@@ -520,7 +591,7 @@
         </div>
 
         {# Champ 9 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
             {% if championNine|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championNine.image }}" alt="Image of the champion.">
@@ -528,13 +599,23 @@
                 {% if spellsNine|default %}
                     {# Col 12 spell image + rank 5 #}
                     <div class="grid grid-cols-12 col-span-11">
+                        {% set colCount = 0 %}
                         {% for spell in spellsNine  %}
+                            {% if colCount + spell.cooldowns|length > 11 %}
+                                {% set span = 12 - colCount %}
+                                {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                                {% set colCount = 0 %}
+                            {% endif %}
                             <div class="col-span-1">
                                 <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                             </div>
+                            {% set colCount = colCount + 1 %}
 
                             {% for cooldown in spell.cooldowns %}
-                                <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                {% set colCount = colCount + 1 %}
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteNine)) | round(1) }}
@@ -552,7 +633,7 @@
         </div>
 
         {# Champ 10 #}
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
             {% if championTen|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championTen.image }}" alt="Image of the champion.">
@@ -560,13 +641,23 @@
                 {% if spellsTen|default %}
                     {# Col 12 spell image + rank 5 #}
                     <div class="grid grid-cols-12 col-span-11">
+                        {% set colCount = 0 %}
                         {% for spell in spellsTen  %}
+                            {% if colCount + spell.cooldowns|length > 11 %}
+                                {% set span = 12 - colCount %}
+                                {% if span != 0 %}
+                                <div class="col-span-{{ span }} w-full"></div>
+                            {% endif %}
+                                {% set colCount = 0 %}
+                            {% endif %}
                             <div class="col-span-1">
                                 <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                             </div>
+                            {% set colCount = colCount + 1 %}
 
                             {% for cooldown in spell.cooldowns %}
-                                <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                {% set colCount = colCount + 1 %}
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteTen)) | round(1) }}
