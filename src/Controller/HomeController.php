@@ -9,7 +9,6 @@ use App\Repository\SpellRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
 use Symfony\Component\Routing\Attribute\Route;
 
 
@@ -33,19 +32,22 @@ class HomeController extends AbstractController
             $championNameOne = $data->nameOne;
             $hasteOne = $data->hasteOne;
             if(is_string($championNameOne)){
-                $championOne = $championRepository->findOneByName($championNameOne);
+                $championOne = $championRepository->findOneByNameOrAlias($championNameOne);
                 if($championOne){
                     $spellsOne = $spellRepository->findByChampion($championOne);
 
                 }
             }
 
+//            // TODO
+//            dd($spellsOne);
+
             $spellsTwo = null;
             $championTwo = null;
             $championNameTwo = $data->nameTwo;
             $hasteTwo = $data->hasteTwo;
             if(is_string($championNameTwo)){
-                $championTwo = $championRepository->findOneByName($championNameTwo);
+                $championTwo = $championRepository->findOneByNameOrAlias($championNameTwo);
                 if($championTwo){
                     $spellsTwo = $spellRepository->findByChampion($championTwo);
 
@@ -57,7 +59,7 @@ class HomeController extends AbstractController
             $championNameThree = $data->nameThree;
             $hasteThree = $data->hasteThree;
             if(is_string($championNameThree)){
-                $championThree = $championRepository->findOneByName($championNameThree);
+                $championThree = $championRepository->findOneByNameOrAlias($championNameThree);
                 if($championThree){
                     $spellsThree = $spellRepository->findByChampion($championThree);
 
@@ -69,7 +71,7 @@ class HomeController extends AbstractController
             $championNameFour = $data->nameFour;
             $hasteFour = $data->hasteFour;
             if(is_string($championNameFour)){
-                $championFour = $championRepository->findOneByName($championNameFour);
+                $championFour = $championRepository->findOneByNameOrAlias($championNameFour);
                 if($championFour){
                     $spellsFour = $spellRepository->findByChampion($championFour);
 
@@ -81,7 +83,7 @@ class HomeController extends AbstractController
             $championNameFive = $data->nameFive;
             $hasteFive = $data->hasteFive;
             if(is_string($championNameFive)){
-                $championFive = $championRepository->findOneByName($championNameFive);
+                $championFive = $championRepository->findOneByNameOrAlias($championNameFive);
                 if($championFive){
                     $spellsFive = $spellRepository->findByChampion($championFive);
 
@@ -93,7 +95,7 @@ class HomeController extends AbstractController
             $championNameSix = $data->nameSix;
             $hasteSix = $data->hasteSix;
             if(is_string($championNameSix)){
-                $championSix = $championRepository->findOneByName($championNameSix);
+                $championSix = $championRepository->findOneByNameOrAlias($championNameSix);
                 if($championSix){
                     $spellsSix = $spellRepository->findByChampion($championSix);
 
@@ -105,7 +107,7 @@ class HomeController extends AbstractController
             $championNameSeven = $data->nameSeven;
             $hasteSeven = $data->hasteSeven;
             if(is_string($championNameSeven)){
-                $championSeven = $championRepository->findOneByName($championNameSeven);
+                $championSeven = $championRepository->findOneByNameOrAlias($championNameSeven);
                 if($championSeven){
                     $spellsSeven = $spellRepository->findByChampion($championSeven);
 
@@ -117,7 +119,7 @@ class HomeController extends AbstractController
             $championNameEight = $data->nameEight;
             $hasteEight = $data->hasteEight;
             if(is_string($championNameEight)){
-                $championEight = $championRepository->findOneByName($championNameEight);
+                $championEight = $championRepository->findOneByNameOrAlias($championNameEight);
                 if($championEight){
                     $spellsEight = $spellRepository->findByChampion($championEight);
 
@@ -129,7 +131,7 @@ class HomeController extends AbstractController
             $championNameNine = $data->nameNine;
             $hasteNine = $data->hasteNine;
             if(is_string($championNameNine)){
-                $championNine = $championRepository->findOneByName($championNameNine);
+                $championNine = $championRepository->findOneByNameOrAlias($championNameNine);
                 if($championNine){
                     $spellsNine = $spellRepository->findByChampion($championNine);
 
@@ -141,7 +143,7 @@ class HomeController extends AbstractController
             $championNameTen = $data->nameTen;
             $hasteTen = $data->hasteTen;
             if(is_string($championNameTen)){
-                $championTen = $championRepository->findOneByName($championNameTen);
+                $championTen = $championRepository->findOneByNameOrAlias($championNameTen);
                 if($championTen){
                     $spellsTen = $spellRepository->findByChampion($championTen);
 
@@ -186,48 +188,4 @@ class HomeController extends AbstractController
             'form' => $form,
         ]);
     }
-
-    #[Route('/champions', name: 'app_champions')]
-    public function showChampions(
-        ChampionRepository $championRepository,
-        #[MapQueryParameter(options: ['min_range' => 1])]
-        int $page = 1,
-    ): Response
-    {
-        $champions = $championRepository->pagination(page: $page, limit: 50);
-
-        return $this->render('home/champions.html.twig', [
-            'champions' => $champions,
-        ]);
-    }
-
-    #[Route('/spells', name: 'app_spells')]
-    public function showSpells(
-        SpellRepository $spellRepository,
-        #[MapQueryParameter(options: ['min_range' => 1])]
-        int $page = 1,
-    ): Response
-    {
-        $spells = $spellRepository->pagination(page: $page, limit: 50);
-
-        return $this->render('home/spells.html.twig', [
-            'spells' => $spells,
-        ]);
-    }
-
-    #[Route('/test', name: 'app_test')]
-    public function showTest(
-        SpellRepository $spellRepository,
-        ChampionRepository $championRepository,
-        #[MapQueryParameter(options: ['min_range' => 1])]
-        int $page = 1,
-    ): Response
-    {
-
-
-        return $this->render('base.html.twig', [
-
-        ]);
-    }
-
 }

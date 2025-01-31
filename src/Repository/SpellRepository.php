@@ -33,6 +33,15 @@ class SpellRepository extends ServiceEntityRepository
             ->innerJoin('s.champions', 'c')
             ->where('c = :champion')
             ->setParameter('champion', $champion)
+            ->orderBy(
+                "CASE
+                WHEN s.keyboard = 'q' THEN 1
+                WHEN s.keyboard = 'w' THEN 2
+                WHEN s.keyboard = 'e' THEN 3
+                WHEN s.keyboard = 'r' THEN 4
+                ELSE 5
+            END"
+            )
             ->getQuery()
             ->getResult()
         ;

@@ -31,6 +31,19 @@ class ChampionRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(['alias' => $alias]);
     }
+
+    public function findOneByNameOrAlias(string $input): ?Champion
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->where($qb->expr()->orX(
+            $qb->expr()->eq('LOWER(c.name)', ':input'),
+            $qb->expr()->eq('LOWER(c.alias)', ':input')
+        ))
+            ->setParameter('input', strtolower($input))
+            ->setMaxResults(1);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
     public function findOneByCustomId(int $customId): ?Champion
     {
         return $this->findOneBy(['customId' => $customId]);

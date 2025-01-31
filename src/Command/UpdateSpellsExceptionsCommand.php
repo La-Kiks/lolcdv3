@@ -13,6 +13,7 @@ use App\Logic\Irregulars\Karma;
 use App\Logic\Irregulars\NidaleeCougar;
 use App\Logic\Irregulars\Reksai;
 use App\Logic\Irregulars\Tahmkench;
+use App\Logic\Irregulars\Udyr;
 use App\Logic\Irregulars\Yuumi;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -39,6 +40,8 @@ class UpdateSpellsExceptionsCommand extends Command
         private readonly Yuumi $yuumi,
         private readonly Belveth $belveth,
         private readonly Kalista $kalista,
+        private readonly Udyr $udyr,
+
     )
     {
         parent::__construct();
@@ -71,6 +74,8 @@ class UpdateSpellsExceptionsCommand extends Command
         // $this->belveth->createBelveth();
 
         // $this->kalista->createKalista();
+
+        // $this->udyr->createUdyr();
 
         $io->success('Command executed successfully');
 

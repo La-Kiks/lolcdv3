@@ -257,19 +257,26 @@
 
     {# Champion view #}
     <div class="p-1 md:ml-64 overflow-x-auto ">
-        <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full text-sm text-center text-gray-500 dark:text-gray-400">
         {% if championOne|default %}
             <div class="col-span-1 items-center justify-center m-auto">
                 <img class="h-14 min-w-14" src="{{ championOne.image }}" alt="Image of the champion.">
             </div>
             {% if spellsOne|default %}
+
+                {% set count = 0 %}
                 {# Col 12 spell image + rank 5 #}
-                <div class="grid grid-cols-12 col-span-11">
+                {% if spellsOne[count].cooldowns|length == 6 %}
+                <div class="grid  grid-cols-7 col-span-11">
+                {% else %}
+                <div class="grid md:grid-cols-12 grid-cols-6 col-span-11">
+                {% endif %}
+                {% set count = count + 1 %}
+
                     {% for spell in spellsOne  %}
                         <div class="col-span-1">
                             <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
                         </div>
-
                         {% for cooldown in spell.cooldowns %}
                             <div class="col-span-1 text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
                                 {% if spell.affectedByCdr %}
@@ -278,7 +285,6 @@
                                 {% else %}
                                     {{ cooldown }}
                                 {% endif %}
-
                             </div>
                         {% endfor %}
 
@@ -287,7 +293,6 @@
             {% endif %}
         {% endif %}
         </div>
-
 
     {# Champ 2 #}
         <div class="grid grid-cols-12 w-full text-sm text-center text-gray-500 dark:text-gray-400">
