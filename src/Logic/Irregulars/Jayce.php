@@ -5,6 +5,7 @@ namespace App\Logic\Irregulars;
 use App\Entity\Spell;
 use App\Logic\CommunityDragon\SpellDTO;
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -17,6 +18,7 @@ class Jayce
         private LoggerInterface $logger,
         private ChampionRepository $championRepository,
         private SpellRepository $spellRepository,
+        private PatchRepository $patchRepository,
     )
     {
 
@@ -36,6 +38,7 @@ class Jayce
 
             // Step 1 Get Champion - Jayce 126
             $champion = $this->championRepository->findOneByAlias('Jayce');
+            $patch = $this->patchRepository->findMostRecentEntry();
 
             // Edit Q, W E cd to length 6
             // To the Skies! / Shock Blast
@@ -72,7 +75,7 @@ class Jayce
             $currentRSpell = $this->spellRepository->findOneByChampionAndKey($champion, 'r');
             $rCooldowns = $currentRSpell->getCooldowns();
             $currentRSpell->setCooldowns(array_slice($rCooldowns,0,1))
-                ->setPatch('latest')
+                ->setPatch($patch)
             ;
 
             $this->spellRepository->save($currentRSpell);
@@ -133,7 +136,7 @@ class Jayce
                     $spell->setImage($item->imageUrl)
                         ->setName($item->name)
                         ->setCooldowns($item->cooldowns)
-                        ->setPatch('latest')
+                        ->setPatch($patch)
                         ->setKeyboard($item->key)
                         ->addChampion($champion)
                     ;

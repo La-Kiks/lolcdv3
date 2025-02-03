@@ -51,31 +51,31 @@ class UpdateSpellsExceptionsCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        // $this->affectedByCdr->updateNotAffectedByCdr();
+         $this->affectedByCdr->updateNotAffectedByCdr();
 
-        // $this->eliseSpider->createEliseSpider();
+         $this->eliseSpider->createEliseSpider();
 
-        // $this->nidaleeCougar->createNidaleeCougar();
+         $this->nidaleeCougar->createNidaleeCougar();
 
-        // $this->aurelionSol->createAurelionSol();
+         $this->aurelionSol->createAurelionSol();
 
-        // $this->jayce->createJayce();
+         $this->jayce->createJayce();
 
-        //$this->reksai->createReksai();
+        $this->reksai->createReksai();
 
-        //$this->karma->createKarma();
+        $this->karma->createKarma();
 
-        // $this->aphelios->createAphelios();
+         $this->aphelios->createAphelios();
 
-        // $this->tahmkench->createTahmKench();
+         $this->tahmkench->createTahmKench();
 
-        // $this->yuumi->createYuumi();
+         $this->yuumi->createYuumi();
 
-        // $this->belveth->createBelveth();
+         $this->belveth->createBelveth();
 
-        // $this->kalista->createKalista();
+         $this->kalista->createKalista();
 
-        // $this->udyr->createUdyr();
+         $this->udyr->createUdyr();
 
         $io->success('Command executed successfully');
 

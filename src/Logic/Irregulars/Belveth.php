@@ -4,6 +4,7 @@ namespace App\Logic\Irregulars;
 
 
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;

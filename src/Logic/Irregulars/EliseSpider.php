@@ -5,6 +5,7 @@ namespace App\Logic\Irregulars;
 use App\Entity\Spell;
 use App\Logic\CommunityDragon\SpellDTO;
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -18,6 +19,7 @@ class EliseSpider
         private LoggerInterface $logger,
         private ChampionRepository $championRepository,
         private SpellRepository $spellRepository,
+        private PatchRepository $patchRepository,
     )
     {
 
@@ -37,6 +39,7 @@ class EliseSpider
 
             // Step 1 Get Elise Champion - Elise - 60
             $championElise = $this->championRepository->findOneByAlias('Elise');
+            $patch = $this->patchRepository->findMostRecentEntry();
 
             //Step 2 prepare spider spells
             // Q
@@ -86,7 +89,7 @@ class EliseSpider
                     $spell->setImage($item->imageUrl)
                         ->setName($item->name)
                         ->setCooldowns($item->cooldowns)
-                        ->setPatch('latest')
+                        ->setPatch($patch)
                         ->setKeyboard($item->key)
                         ->addChampion($championElise)
                     ;

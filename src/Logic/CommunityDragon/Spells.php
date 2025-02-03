@@ -5,6 +5,7 @@ namespace App\Logic\CommunityDragon;
 use App\Entity\Champion;
 use App\Entity\Spell;
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -16,6 +17,7 @@ class Spells
         private LoggerInterface $logger,
         private ChampionRepository $championRepository,
         private SpellRepository $spellRepository,
+        private PatchRepository $patchRepository,
     )
     {
     }
@@ -24,6 +26,7 @@ class Spells
     {
         // Step 1 get all the champions from database
         $champions = $this->championRepository->findAll();
+        $patch = $this->patchRepository->findMostRecentEntry();
 
         $baseUrl = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champions/";
 
@@ -96,7 +99,7 @@ class Spells
                         $newSpell->setImage($spellDTO->imageUrl)
                             ->setName($spellDTO->name)
                             ->setCooldowns($spellDTO->cooldowns)
-                            ->setPatch('Latest')
+                            ->setPatch($patch)
                             ->setKeyboard($spellDTO->key)
                             ->addChampion($champion)
                         ;
@@ -113,7 +116,7 @@ class Spells
 
                         if($spellToEditCooldowns[0] != $spellDTO->cooldowns[0]){
                             $spellToEdit->setCooldowns($spellDTO->cooldowns)
-                                ->setPatch('Updated')
+                                ->setPatch($patch)
                             ;
 
                             $this->spellRepository->save($spellToEdit);

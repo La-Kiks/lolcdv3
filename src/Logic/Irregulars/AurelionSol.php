@@ -5,6 +5,7 @@ namespace App\Logic\Irregulars;
 use App\Entity\Spell;
 use App\Logic\CommunityDragon\SpellDTO;
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -17,6 +18,7 @@ class AurelionSol
         private LoggerInterface $logger,
         private ChampionRepository $championRepository,
         private SpellRepository $spellRepository,
+        private PatchRepository $patchRepository,
     )
     {
 
@@ -36,6 +38,7 @@ class AurelionSol
 
             // Step 1 Get Champion - Aurelion 136
             $champion = $this->championRepository->findOneByAlias('AurelionSol');
+            $patch = $this->patchRepository->findMostRecentEntry();
 
             // W
             $array = $content['Characters/AurelionSol/Spells/AurelionSolWAbility/AurelionSolWToggle']['mSpell']['mDataValues'][9]['mValues'];
@@ -45,7 +48,7 @@ class AurelionSol
             $currentWSpell = $this->spellRepository->findOneByChampionAndKey($champion, 'w');
 
             $currentWSpell->setCooldowns($wCooldowns)
-                ->setPatch('latest')
+                ->setPatch($patch)
             ;
 
             $this->spellRepository->save($currentWSpell);

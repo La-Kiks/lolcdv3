@@ -81,9 +81,12 @@ db-init: db-drop ## Drop and create the database
 db-drop: ## Drop the database
 	$(SYMFONY) doctrine:database:drop --if-exists --force -vv; \
 
-
 db-create: ## Create the database using Symfony Doctrine command
 	@$(SYMFONY) doctrine:database:create -vv
+
+db-update: ## Update the database
+	@$(SYMFONY) make:migration --formatted
+	@$(SYMFONY) doctrine:migrations:migrate
 
 db-test: ## Drop and create the test database and load fixtures
 	@$(SYMFONY) --env=test doctrine:database:drop --if-exists --force

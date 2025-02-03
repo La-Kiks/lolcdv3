@@ -4,6 +4,7 @@ namespace App\Logic\CommunityDragon;
 
 use App\Entity\Champion;
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
@@ -42,12 +43,10 @@ class ChampionsId
                 $URL_CHAMPIONS_ID_LIST
             );
 
-            if($statusCode = $response->getStatusCode() === 200) {
+            if($response->getStatusCode() === 200) {
                 $content = $response->getContent();
                 $list = $this->extractJsonFilenames($content);
 
-                // TODO : For each element of the list, access the URL, check for ID & NAME build the Icon URL
-                // If both are available : create a new Champion with the custom ID & Name & Image url.
                 $countTotal = 0 ;
                 $countValid = 0;
                 $countInvalid = 0;

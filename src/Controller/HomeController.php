@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\SearchChampionDTO;
 use App\Form\SearchChampionType;
+use App\Logic\PatchInfo;
 use App\Repository\ChampionRepository;
 use App\Repository\SpellRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -38,9 +39,6 @@ class HomeController extends AbstractController
 
                 }
             }
-
-//            // TODO
-//            dd($spellsOne);
 
             $spellsTwo = null;
             $championTwo = null;

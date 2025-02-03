@@ -6,6 +6,7 @@ use App\Entity\Champion;
 use App\Entity\Spell;
 use App\Logic\CommunityDragon\SpellDTO;
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -15,10 +16,10 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class Aphelios
 {
     public function __construct(
-        private HttpClientInterface $client,
         private LoggerInterface $logger,
         private ChampionRepository $championRepository,
         private SpellRepository $spellRepository,
+        private PatchRepository $patchRepository,
     )
     {
 
@@ -30,6 +31,8 @@ class Aphelios
         // Plan is to delete current Q W E & create new Qs for each weapon (5)
         // source : https://leagueoflegends.fandom.com/wiki/Aphelios/LoL
         $champion = $this->championRepository->findOneByAlias('Aphelios');
+
+        $patch = $this->patchRepository->findMostRecentEntry();
 
         // Delete old spells : Weapon Abilites, Phase, Weapon Queue System
         $spellsToDelete = ['Weapon Abilites', 'Phase', 'Weapon Queue System'];
@@ -46,7 +49,7 @@ class Aphelios
             image: 'https://raw.communitydragon.org/latest/game/assets/characters/aphelios/hud/icons2d/calibrum_l.png',
             name: 'Moonshot',
             cooldowns: [10, 9.67, 9.33, 9, 8.67, 8.33, 8],
-            patch: 'latest',
+            patch: $patch,
             key: 'q',
             champion: $champion
         );
@@ -55,7 +58,7 @@ class Aphelios
             image: 'https://raw.communitydragon.org/latest/game/assets/characters/aphelios/hud/icons2d/severum_l.png',
             name: 'Onslaught',
             cooldowns: [10, 9.67, 9.33, 9, 8.67, 8.33, 8],
-            patch: 'latest',
+            patch: $patch,
             key: 'q',
             champion: $champion
         );
@@ -64,7 +67,7 @@ class Aphelios
             image: 'https://raw.communitydragon.org/latest/game/assets/characters/aphelios/hud/icons2d/gravitum_l.png',
             name: 'Blinding Eclipse',
             cooldowns: [12, 11.67, 11.33, 11, 10.67, 10.33, 10],
-            patch: 'latest',
+            patch: $patch,
             key: 'q',
             champion: $champion
         );
@@ -73,7 +76,7 @@ class Aphelios
             image: 'https://raw.communitydragon.org/latest/game/assets/characters/aphelios/hud/icons2d/infernum_l.png',
             name: 'Duskwave',
             cooldowns: [9, 8.5, 8, 7.5, 7, 6.5, 6],
-            patch: 'latest',
+            patch: $patch,
             key: 'q',
             champion: $champion
         );
@@ -82,7 +85,7 @@ class Aphelios
             image: 'https://raw.communitydragon.org/latest/game/assets/characters/aphelios/hud/icons2d/crescendum_l.png',
             name: 'Sentry',
             cooldowns: [9, 8.5, 8, 7.5, 7, 6.5, 6],
-            patch: 'latest',
+            patch: $patch,
             key: 'q',
             champion: $champion
         );
