@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Adding &quot;Patch&quot; control.">
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Adding &quot;Patch&quot; control &amp; darkmode edit.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/partials/_header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_header.html.twig" afterDir="false" />
     </list>
@@ -149,7 +149,7 @@
     </include_path>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -218,7 +218,8 @@
       <workItem from="1738237966814" duration="12681000" />
       <workItem from="1738257493927" duration="52000" />
       <workItem from="1738331859952" duration="11737000" />
-      <workItem from="1738590430624" duration="9866000" />
+      <workItem from="1738590430624" duration="10158000" />
+      <workItem from="1738600832840" duration="1973000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -356,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738598545098</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Adding &quot;Patch&quot; control &amp; darkmode edit.">
+      <option name="closed" value="true" />
+      <created>1738600537544</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1738600537544</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,6 +387,7 @@
     <MESSAGE value="Last exceptions -&gt; udyr.&#10;Editing QB to take name &amp; alias and ignore case when searching + ordering spell in QWER order." />
     <MESSAGE value="View cleaned : more lines for longer spells (more than 5 rank)." />
     <MESSAGE value="Adding &quot;Patch&quot; control." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding &quot;Patch&quot; control." />
+    <MESSAGE value="Adding &quot;Patch&quot; control &amp; darkmode edit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding &quot;Patch&quot; control &amp; darkmode edit." />
   </component>
 </project>

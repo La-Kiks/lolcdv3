@@ -6,6 +6,7 @@ use App\Form\SearchChampionDTO;
 use App\Form\SearchChampionType;
 use App\Logic\PatchInfo;
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,8 +21,10 @@ class HomeController extends AbstractController
         Request $request,
         ChampionRepository $championRepository,
         SpellRepository $spellRepository,
+        PatchRepository $patchRepository,
     ): Response
     {
+        $patch = $patchRepository->findMostRecentEntry()->getNumero();
         // TODO : Optimize this DRY
         $data = new SearchChampionDTO();
         $form = $this->createForm(SearchChampionType::class, $data);
@@ -150,6 +153,7 @@ class HomeController extends AbstractController
 
             return $this->render('home/index.html.twig', [
                 'form' => $form,
+                'patch' => $patch,
                 'championOne' => $championOne,
                 'spellsOne' => $spellsOne,
                 'hasteOne' => $hasteOne,
@@ -184,6 +188,7 @@ class HomeController extends AbstractController
         }
         return $this->render('home/index.html.twig', [
             'form' => $form,
+            'patch' => $patch,
         ]);
     }
 }

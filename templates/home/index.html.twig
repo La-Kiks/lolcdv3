@@ -272,7 +272,7 @@
                         {% if colCount + spell.cooldowns|length > 11 %}
                             {% set span = 12 - colCount %}
                             {% if span != 0 %}
-                                <div class="col-span-{{ span }}"></div>
+                                <div class="col-span-{{ span }}"> </div>
                             {% endif %}
                             {% set colCount = 0 %}
                         {% endif %}
