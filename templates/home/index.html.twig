@@ -4,7 +4,7 @@
 
 {% block body %}
 <section>
-    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-700 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
         <span class="sr-only">Open sidebar</span>
         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
@@ -12,11 +12,13 @@
     </button>
     <aside id="default-sidebar" class="fixed top-14 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0" aria-label="Sidebar">
         {{ form_start(form) }}
-        <div class="h-screen px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <div class="h-screen px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
                     <button type="submit"
-                            class=" w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            class=" w-full text-white bg-gray-600 bg-primary-600 hover:bg-gray-700 focus:ring-4
+                            focus:outline-none focus:ring-primary-300 font-medium rounded-lg
+                            text-sm px-5 py-2.5 text-center dark:bg-gray-300 dark:text-gray-700 dark:hover:bg-gray-200 dark:focus:ring-primary-800">
                         LOAD
                     </button>
                 </li>
@@ -24,8 +26,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameOne" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameOne) }}" id="nameOne" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameOne" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameOne) }}" id="nameOne" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name" value="{{ field_value(form.nameOne) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -33,8 +35,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteOne" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteOne) }}" id="hasteOne" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteOne" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteOne) }}" id="hasteOne" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteOne) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -46,8 +48,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameTwo" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameTwo) }}" id="nameTwo" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameTwo" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameTwo) }}" id="nameTwo" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameTwo) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -55,8 +57,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteTwo" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteTwo) }}" id="hasteTwo" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteTwo" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteTwo) }}" id="hasteTwo" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteTwo) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -68,8 +70,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameThree" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameThree) }}" id="nameThree" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameThree" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameThree) }}" id="nameThree" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameThree) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -77,8 +79,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteThree" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteThree) }}" id="hasteThree" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteThree" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteThree) }}" id="hasteThree" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteThree) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -90,8 +92,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameFour" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameFour) }}" id="nameFour" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameFour" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameFour) }}" id="nameFour" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameFour) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -99,8 +101,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteFour" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteFour) }}" id="hasteFour" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteFour" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteFour) }}" id="hasteFour" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteFour) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -112,8 +114,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameFive" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameFive) }}" id="nameFive" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameFive" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameFive) }}" id="nameFive" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameFive) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -121,8 +123,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteFive" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteFive) }}" id="hasteFive" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteFive" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteFive) }}" id="hasteFive" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteFive) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -134,8 +136,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameSix" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameSix) }}" id="nameSix" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameSix" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameSix) }}" id="nameSix" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameSix) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -143,8 +145,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteSix" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteSix) }}" id="hasteSix" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteSix" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteSix) }}" id="hasteSix" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteSix) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -156,8 +158,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameSeven" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameSeven) }}" id="nameSeven" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameSeven" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameSeven) }}" id="nameSeven" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameSeven) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -165,8 +167,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteSeven" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteSeven) }}" id="hasteSeven" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteSeven" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteSeven) }}" id="hasteSeven" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteSeven) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -178,8 +180,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameEight" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameEight) }}" id="nameEight" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameEight" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameEight) }}" id="nameEight" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameEight) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -187,8 +189,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteEight" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteEight) }}" id="hasteEight" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteEight" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteEight) }}" id="hasteEight" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteEight) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -200,8 +202,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameNine" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameNine) }}" id="nameNine" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameNine" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameNine) }}" id="nameNine" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameNine) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -209,8 +211,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteNine" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteNine) }}" id="hasteNine" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteNine" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteNine) }}" id="hasteNine" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteNine) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -222,8 +224,8 @@
                     {# A row #}
                     <div class="grid grid-cols-2 gap-2 mt-4 ">
                         <div class="col-span-1">
-                            <label for="nameTen" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="{{ field_name(form.nameTen) }}" id="nameTen" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="nameTen" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
+                            <input type="text" name="{{ field_name(form.nameTen) }}" id="nameTen" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Name"  value="{{ field_value(form.nameTen) }}"
                                    pattern="[a-zA-Z0-9' ]{1,16}"
                                    title="Name must contain only letters and numbers and be 1 to 20 characters long"
@@ -231,8 +233,8 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label for="hasteTen" class="block ml-1 mb-1 text-sm font-medium text-gray-900 dark:text-white">Haste</label>
-                            <input type="text" name="{{ field_name(form.hasteTen) }}" id="hasteTen" class="h-12 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="hasteTen" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
+                            <input type="text" name="{{ field_name(form.hasteTen) }}" id="hasteTen" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Haste"  value="{{ field_value(form.hasteTen) }}"
                                    pattern="^[0-9]+$"
                                    title="Please enter 0 or a positive integer."
@@ -257,7 +259,7 @@
 
     {# Champion view #}
     <div class="p-1 md:ml-64 overflow-x-auto ">
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
         {% if championOne|default %}
             <div class="col-span-1 items-center justify-center m-auto">
                 <img class="h-14 min-w-14" src="{{ championOne.image }}" alt="Image of the champion.">
@@ -270,7 +272,7 @@
                         {% if colCount + spell.cooldowns|length > 11 %}
                             {% set span = 12 - colCount %}
                             {% if span != 0 %}
-                                <div class="col-span-{{ span }} w-full"></div>
+                                <div class="col-span-{{ span }}"></div>
                             {% endif %}
                             {% set colCount = 0 %}
                         {% endif %}
@@ -280,7 +282,7 @@
                         {% set colCount = colCount + 1 %}
                         {% for cooldown in spell.cooldowns %}
                             {% set colCount = colCount + 1 %}
-                            <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                            <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                 {% if spell.affectedByCdr %}
                                     {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                     {{ (cooldown * 100 / (100 + hasteOne)) | round(1) }}
@@ -297,7 +299,7 @@
         </div>
 
     {# Champ 2 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
         {% if championTwo|default %}
             <div class="col-span-1 items-center justify-center m-auto">
                 <img class="h-14 min-w-14" src="{{ championTwo.image }}" alt="Image of the champion.">
@@ -321,7 +323,7 @@
 
                         {% for cooldown in spell.cooldowns %}
                             {% set colCount = colCount + 1 %}
-                            <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                            <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                 {% if spell.affectedByCdr %}
                                     {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                     {{ (cooldown * 100 / (100 + hasteTwo)) | round(1) }}
@@ -338,7 +340,7 @@
         </div>
 
         {# Champ 3 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
             {% if championThree|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championThree.image }}" alt="Image of the champion.">
@@ -362,7 +364,7 @@
 
                             {% for cooldown in spell.cooldowns %}
                                 {% set colCount = colCount + 1 %}
-                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteThree)) | round(1) }}
@@ -380,7 +382,7 @@
         </div>
 
         {# Champ 4 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
             {% if championFour|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championFour.image }}" alt="Image of the champion.">
@@ -404,7 +406,7 @@
 
                             {% for cooldown in spell.cooldowns %}
                                 {% set colCount = colCount + 1 %}
-                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteFour)) | round(1) }}
@@ -422,7 +424,7 @@
         </div>
 
         {# Champ 5 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
             {% if championFive|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championFive.image }}" alt="Image of the champion.">
@@ -446,7 +448,7 @@
 
                             {% for cooldown in spell.cooldowns %}
                                 {% set colCount = colCount + 1 %}
-                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteFive)) | round(1) }}
@@ -465,7 +467,7 @@
 
 
         {# Champ 6 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
             {% if championSix|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championSix.image }}" alt="Image of the champion.">
@@ -489,7 +491,7 @@
 
                             {% for cooldown in spell.cooldowns %}
                                 {% set colCount = colCount + 1 %}
-                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteSix)) | round(1) }}
@@ -507,7 +509,7 @@
         </div>
 
         {# Champ 7 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
             {% if championSeven|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championSeven.image }}" alt="Image of the champion.">
@@ -531,7 +533,7 @@
 
                             {% for cooldown in spell.cooldowns %}
                                 {% set colCount = colCount + 1 %}
-                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteSeven)) | round(1) }}
@@ -549,7 +551,7 @@
         </div>
 
         {# Champ 8 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
             {% if championEight|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championEight.image }}" alt="Image of the champion.">
@@ -573,7 +575,7 @@
 
                             {% for cooldown in spell.cooldowns %}
                                 {% set colCount = colCount + 1 %}
-                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteEight)) | round(1) }}
@@ -591,7 +593,7 @@
         </div>
 
         {# Champ 9 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
             {% if championNine|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championNine.image }}" alt="Image of the champion.">
@@ -615,7 +617,7 @@
 
                             {% for cooldown in spell.cooldowns %}
                                 {% set colCount = colCount + 1 %}
-                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteNine)) | round(1) }}
@@ -633,7 +635,7 @@
         </div>
 
         {# Champ 10 #}
-        <div class="grid grid-cols-12 my-2 w-full md:text-base text-sm text-center text-gray-500 dark:text-gray-400">
+        <div class="grid grid-cols-12 my-2 w-full  md:text-base text-sm text-center text-gray-700 dark:text-gray-400">
             {% if championTen|default %}
                 <div class="col-span-1 items-center justify-center m-auto">
                     <img class="h-14 min-w-14" src="{{ championTen.image }}" alt="Image of the champion.">
@@ -657,7 +659,7 @@
 
                             {% for cooldown in spell.cooldowns %}
                                 {% set colCount = colCount + 1 %}
-                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-500 dark:text-gray-400" >
+                                <div class="col-span-1 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                                     {% if spell.affectedByCdr %}
                                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
                                         {{ (cooldown * 100 / (100 + hasteTen)) | round(1) }}

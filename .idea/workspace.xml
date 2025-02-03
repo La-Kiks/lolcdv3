@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Adding &quot;Patch&quot; control.">
-      <change afterPath="$PROJECT_DIR$/src/Command/CheckPatchCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Command/UpdatePatchCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Logic/PatchInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Logic/PatchInfoDTO.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UpdateSpellsExceptionsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/UpdateSpellsExceptionsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/ChampionsId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/ChampionsId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Aphelios.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Aphelios.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/AurelionSol.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/AurelionSol.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Belveth.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Belveth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/NidaleeCougar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/NidaleeCougar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Reksai.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Reksai.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/_header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +218,7 @@
       <workItem from="1738237966814" duration="12681000" />
       <workItem from="1738257493927" duration="52000" />
       <workItem from="1738331859952" duration="11737000" />
-      <workItem from="1738590430624" duration="8038000" />
+      <workItem from="1738590430624" duration="9866000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -361,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738351390927</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Adding &quot;Patch&quot; control.">
+      <option name="closed" value="true" />
+      <created>1738598545098</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1738598545098</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
