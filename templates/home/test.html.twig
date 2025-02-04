@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}lolcooldowns{% endblock %}
+
+{% block body %}
+<section>
+    {# Sidebar #}
+    {% include 'components/_sidebar.html.twig' %}
+
+    {# Champion view #}
+    <div class="p-1 md:ml-64 overflow-x-auto ">
+        {% for champion in champions %}
+            {% include 'components/_champion_view.html.twig' %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

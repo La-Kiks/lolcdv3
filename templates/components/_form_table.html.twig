@@ -1,0 +1,23 @@
+<div {{ stimulus_controller('form-collection') }}
+    data-form-collection-index-value="{{ form.champions|length > 0 ? form.champions|last.vars.name + 1 : 0 }}"
+    data-form-collection-prototype-value="{{ form_widget(form.champions.vars.prototype)|e('html_attr') }}"
+    class="h-screen px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800"
+>
+    <div class="flex flex-row">
+        <button type="submit"
+                class="my-2 mx-auto w-24 text-white bg-pink-600  hover:bg-pink-700 focus:ring-4
+                focus:outline-none focus:ring-pink-300 font-medium rounded-lg
+                text-sm px-5 py-2.5 text-center dark:bg-pink-500 dark:text-gray-900 dark:hover:bg-pink-200 dark:focus:ring-pink-800">
+            Calculate
+        </button>
+        <button type="button" {{ stimulus_action('form-collection', 'addCollectionElement') }}
+                class="my-2 mx-auto w-24  text-white bg-cyan-600  hover:bg-cyan-700 focus:ring-4
+                focus:outline-none focus:ring-cyan-300 font-medium rounded-lg
+                text-sm px-5 py-2.5 text-center dark:bg-cyan-500 dark:text-gray-900 dark:hover:bg-cyan-200 dark:focus:ring-cyan-800">
+            Add
+        </button>
+    </div>
+    <ul class="space-y-2 font-medium"
+        {{ stimulus_target('form-collection', 'collectionContainer') }}></ul>
+
+</div>

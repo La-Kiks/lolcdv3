@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Form\SearchChampionDTO;
 use App\Form\SearchChampionType;
+use App\Form\SearchType;
 use App\Logic\PatchInfo;
+use App\Model\SearchData;
 use App\Repository\ChampionRepository;
 use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
@@ -189,6 +191,29 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'form' => $form,
             'patch' => $patch,
+        ]);
+    }
+
+    #[Route('/test', name: 'app_test')]
+    public function test(
+        Request $request,
+        ChampionRepository $championRepository,
+        SpellRepository $spellRepository,
+        PatchRepository $patchRepository,
+    ): Response
+    {
+        $patch = $patchRepository->findMostRecentEntry()->getNumero();
+        $searchData = new SearchData();
+        $champions = null;
+
+        $form = $this->createForm(SearchType::class, $searchData);
+        $form->handleRequest($request);
+
+
+        return $this->render('home/test.html.twig', [
+            'patch' => $patch,
+            'form' => $form,
+            'champions' => $champions,
         ]);
     }
 }

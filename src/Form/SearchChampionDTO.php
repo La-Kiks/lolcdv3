@@ -5,7 +5,7 @@ namespace App\Form;
 class SearchChampionDTO
 {
     public function __construct(
-        public string $nameOne = '',
+        public ?string $nameOne = '',
         public ?int $hasteOne = null,
 
         public ?string $nameTwo = '',
