@@ -3,11 +3,11 @@
     {% if champion|default %}
     {# Champion image #}
     <div class="col-span-1 items-center justify-center m-auto">
-        <img class="h-14 min-w-14" src="{{ champion.image }}" alt="Image of the champion.">
+        <img class="h-14 min-w-14" src="{{ champion.champion.image }}" alt="Image of the champion.">
     </div>
-    {% if spells|default %}
+    {% if champion.spells|default %}
     <div class="col-span-11 grid grid-cols-12">
-        {% for spell in spells  %}
+        {% for spell in champion.spells  %}
         <div class="col-span-1">
             <img class="h-8 mx-auto"  src="{{ spell.image }}" alt="Image of the ability.">
         </div>
@@ -24,7 +24,7 @@
                 <div class="col-span-1 w-8 md:text-base text-sm text-center justify-center p-0.5 m-auto text-gray-700 dark:text-gray-400" >
                     {% if spell.affectedByCdr %}
                         {# Reduced Cooldown = Base Cooldown x 100 / (100 + Haste) #}
-                        {{ (cooldown * 100 / (100 + haste)) | round(1) }}
+                        {{ (cooldown * 100 / (100 + champion.haste)) | round(1) }}
                     {% else %}
                         {{ cooldown }}
                     {% endif %}

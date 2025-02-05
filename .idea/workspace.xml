@@ -4,32 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Patch header">
-      <change afterPath="$PROJECT_DIR$/assets/controllers/form-collection_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/scripts/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/NameHasteType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/SearchType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/SearchData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/_champion_view.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/_form_row.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/_form_table.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/_sidebar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/form/my_theme.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home/test.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/BasicTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="DRY the collection + dynamic row with stimulus">
+      <change afterPath="$PROJECT_DIR$/src/Controller/ChampionSpellsHasteDTO.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/importmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/importmap.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SearchChampionDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchChampionDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SearchChampionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchChampionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SearchType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_champion_view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_champion_view.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_form_table.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_form_table.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_sidebar.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +225,8 @@
       <workItem from="1738331859952" duration="11737000" />
       <workItem from="1738590430624" duration="10158000" />
       <workItem from="1738600832840" duration="2028000" />
-      <workItem from="1738659337027" duration="21010000" />
+      <workItem from="1738659337027" duration="23017000" />
+      <workItem from="1738759347782" duration="7386000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -397,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738608142765</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="DRY the collection + dynamic row with stimulus">
+      <option name="closed" value="true" />
+      <created>1738692825385</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1738692825385</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,6 +412,7 @@
     <MESSAGE value="Adding &quot;Patch&quot; control." />
     <MESSAGE value="Adding &quot;Patch&quot; control &amp; darkmode edit." />
     <MESSAGE value="Patch header" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch header" />
+    <MESSAGE value="DRY the collection + dynamic row with stimulus" />
+    <option name="LAST_COMMIT_MESSAGE" value="DRY the collection + dynamic row with stimulus" />
   </component>
 </project>

@@ -15,6 +15,7 @@ class SearchType extends AbstractType
             ->add('champions', CollectionType::class,  [
                 'entry_type' => NameHasteType::class,
                 'allow_add' => true,
+                'allow_delete' => true,
                 'entry_options' => ['label' => false]
             ]);
     }
