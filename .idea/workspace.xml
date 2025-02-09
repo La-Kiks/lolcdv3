@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Search with collection works. Need to bugfix Embbeded Collection Form and add autocomplete. (Symfony UX)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Collection OK.&#10;Autocomplete + a bit of custom CSS to adapt autocomplete view from TOM to Tailwind.">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +223,7 @@
       <workItem from="1738600832840" duration="2028000" />
       <workItem from="1738659337027" duration="23017000" />
       <workItem from="1738759347782" duration="8065000" />
+      <workItem from="1739106844646" duration="11075000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -390,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738770445280</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Collection OK.&#10;Autocomplete + a bit of custom CSS to adapt autocomplete view from TOM to Tailwind.">
+      <option name="closed" value="true" />
+      <created>1739117582174</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1739117582174</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,6 +427,7 @@
     <MESSAGE value="Patch header" />
     <MESSAGE value="DRY the collection + dynamic row with stimulus" />
     <MESSAGE value="Search with collection works. Need to bugfix Embbeded Collection Form and add autocomplete. (Symfony UX)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Search with collection works. Need to bugfix Embbeded Collection Form and add autocomplete. (Symfony UX)" />
+    <MESSAGE value="Collection OK.&#10;Autocomplete + a bit of custom CSS to adapt autocomplete view from TOM to Tailwind." />
+    <option name="LAST_COMMIT_MESSAGE" value="Collection OK.&#10;Autocomplete + a bit of custom CSS to adapt autocomplete view from TOM to Tailwind." />
   </component>
 </project>
