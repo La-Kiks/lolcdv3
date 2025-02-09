@@ -18,6 +18,10 @@
         </button>
     </div>
     <ul class="space-y-2 font-medium"
-        {{ stimulus_target('form-collection', 'collectionContainer') }}></ul>
+        {{ stimulus_target('form-collection', 'collectionContainer') }}>
+        {% for champion in form.champions %}
+            <li>{{ form_row(champion) }}</li>
+        {% endfor %}
+    </ul>
 
 </div>

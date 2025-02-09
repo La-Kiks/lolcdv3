@@ -210,27 +210,27 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            $data = $form->getData();
-            foreach ($data as $paire){
-                foreach ($paire as $champ){
-                    $name = $champ['name'];
-                    $haste = $champ['haste'];
+            foreach ($searchData->champions as $champ){
 
-                    if(!is_numeric($haste)){
-                        $haste = 0;
-                    }
+                // $name = $champ['name'];
+                $haste = $champ['haste'];
 
-                    if(is_string($name)){
-                        $champion = $championRepository->findOneByNameOrAlias($name);
-                        if ($champion){
-                            $spells = $spellRepository->findByChampion($champion);
-                            $CSHDTO = new ChampionSpellsHasteDTO(
-                                champion: $champion, spells: $spells, haste: $haste
-                            );
-                            $champions[] = $CSHDTO;
-                        }
-                    }
+                if(!is_numeric($haste)){
+                    $haste = 0;
                 }
+
+                // if(is_string($name)){
+                    // $champion = $championRepository->findOneByNameOrAlias($name);
+                    $champion = $champ['name'];
+                    if ($champion){
+                        $spells = $spellRepository->findByChampion($champion);
+                        $CSHDTO = new ChampionSpellsHasteDTO(
+                            champion: $champion, spells: $spells, haste: $haste
+                        );
+                        $champions[] = $CSHDTO;
+                    }
+
+                // }
             }
         }
 

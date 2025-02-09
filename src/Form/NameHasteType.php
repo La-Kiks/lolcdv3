@@ -12,7 +12,7 @@ class NameHasteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
+            ->add('name', ChampionAutocompleteField::class, [
                 'label' => 'Name',
                 'required' => false,
             ])

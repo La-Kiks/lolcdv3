@@ -1,19 +1,31 @@
 <div class="grid grid-cols-2 gap-2 mt-4 ">
     <div class="col-span-1">
-        <label for="{{ field_name(form.name) }}" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Name</label>
-        <input type="text" name="{{ field_name(form.name) }}" id="{{ field_name(form.name) }}" class="autocomplete h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               placeholder="Name" value="{{ field_value(form.name) }}"
-               pattern="[a-zA-Z0-9' ]{1,16}"
-               title="Name must contain only letters and numbers and be 1 to 20 characters long"
-        >
+{#        <label for="{{ field_name(form.name) }}" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">#}
+{#            Name#}
+
+{#        </label>#}
+        {{ form_label(form.name, 'Name', {'label_attr': {'class': 'block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white'}}) }}
+        {{ form_widget(form.name) }}
+
+{#        <input type="text" name="{{ field_name(form.name) }}" id="{{ field_name(form.name) }}" class="autocomplete h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"#}
+{#               placeholder="Name" value="{{ field_value(form.name) }}"#}
+{#               pattern="[a-zA-Z0-9' ]{1,16}"#}
+{#               title="Name must contain only letters and numbers and be 1 to 20 characters long"#}
+{#        >#}
+
+
+
     </div>
 
     <div class="col-span-1">
-        <label for="{{ field_name(form.haste) }}" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>
-        <input type="text" name="{{ field_name(form.haste) }}" id="{{ field_name(form.haste) }}" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-               placeholder="Haste"  value="{{ field_value(form.haste) }}"
-               pattern="^[0-9]+$"
-               title="Please enter 0 or a positive integer."
-        >
+{#        <label for="{{ field_name(form.haste) }}" class="block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white">Haste</label>#}
+{#        <input type="text" name="{{ field_name(form.haste) }}" id="{{ field_name(form.haste) }}" class="h-12 bg-gray-50 border border-gray-300 text-gray-700 rounded-lg focus:outline-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"#}
+{#               placeholder="Haste"  value="{{ field_value(form.haste) }}"#}
+{#               pattern="^[0-9]+$"#}
+{#               title="Please enter 0 or a positive integer."#}
+{#        >#}
+
+        {{ form_label(form.haste, 'Haste', {'label_attr': {'class': 'block ml-1 mb-1 text-sm font-medium text-gray-800 dark:text-white'}}) }}
+        {{ form_widget(form.haste) }}
     </div>
 </div>
