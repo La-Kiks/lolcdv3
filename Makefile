@@ -84,6 +84,9 @@ db-drop: ## Drop the database
 db-create: ## Create the database using Symfony Doctrine command
 	@$(SYMFONY) doctrine:database:create -vv
 
+db-diff: ##
+	@$(SYMFONY) doctrine:migrations:diff
+
 db-update: ## Update the database
 	@$(SYMFONY) make:migration --formatted
 	@$(SYMFONY) doctrine:migrations:migrate
