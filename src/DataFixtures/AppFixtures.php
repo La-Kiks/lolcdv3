@@ -27,7 +27,6 @@ class AppFixtures extends Fixture
         $spell->setImage('test-image.url')
             ->setName('Test Spell')
             ->setCooldowns([1,2,3,4,5])
-            ->setPatch('Patch no')
             ->setKeyboard('Q')
             ->addChampion($champion)
         ;

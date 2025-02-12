@@ -27,6 +27,11 @@ class Patch
         $this->created_at = new DateTimeImmutable();
     }
 
+//    public function __toString(): string
+//    {
+//        return $this->numero;
+//    }
+
     public function getId(): ?int
     {
         return $this->id;

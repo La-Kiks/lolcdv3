@@ -3,6 +3,7 @@
 namespace App\Logic\Irregulars;
 
 use App\Repository\ChampionRepository;
+use App\Repository\PatchRepository;
 use App\Repository\SpellRepository;
 use Psr\Log\LoggerInterface;
 
@@ -11,6 +12,7 @@ class AffectedByCdr
     public function __construct(
         private ChampionRepository $championRepository,
         private SpellRepository    $spellRepository,
+        private PatchRepository $patchRepository,
         private LoggerInterface $logger,
     )
     {

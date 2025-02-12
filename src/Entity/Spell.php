@@ -114,7 +114,7 @@ class Spell
 
     public function getPatch(): string
     {
-        return $this->patch;
+        return $this->patch->getNumero();
     }
 
     public function setPatch(string $patch): self

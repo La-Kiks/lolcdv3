@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Trying to fix docker bake action.">
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Migrations for prod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20250211215626.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Patch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Patch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Spell.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Spell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/AffectedByCdr.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/AffectedByCdr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Aphelios.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Aphelios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PatchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PatchRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,6 +230,8 @@
       <workItem from="1738659337027" duration="23017000" />
       <workItem from="1738759347782" duration="8065000" />
       <workItem from="1739106844646" duration="11494000" />
+      <workItem from="1739310740853" duration="418000" />
+      <workItem from="1739349982901" duration="2593000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -407,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739117966557</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Migrations for prod">
+      <option name="closed" value="true" />
+      <created>1739311125859</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1739311125859</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,6 +453,7 @@
     <MESSAGE value="Search with collection works. Need to bugfix Embbeded Collection Form and add autocomplete. (Symfony UX)" />
     <MESSAGE value="Collection OK.&#10;Autocomplete + a bit of custom CSS to adapt autocomplete view from TOM to Tailwind." />
     <MESSAGE value="Trying to fix docker bake action." />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to fix docker bake action." />
+    <MESSAGE value="Migrations for prod" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrations for prod" />
   </component>
 </project>

@@ -3,6 +3,7 @@
 namespace App\Logic\Irregulars;
 
 use App\Entity\Champion;
+use App\Entity\Patch;
 use App\Entity\Spell;
 use App\Logic\CommunityDragon\SpellDTO;
 use App\Repository\ChampionRepository;

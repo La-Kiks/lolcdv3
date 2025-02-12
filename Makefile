@@ -87,6 +87,9 @@ db-create: ## Create the database using Symfony Doctrine command
 db-diff: ##
 	@$(SYMFONY) doctrine:migrations:diff
 
+db-schema: ##
+	@$(SYMFONY) doctrine:migrations:dump-schema
+
 db-update: ## Update the database
 	@$(SYMFONY) make:migration --formatted
 	@$(SYMFONY) doctrine:migrations:migrate

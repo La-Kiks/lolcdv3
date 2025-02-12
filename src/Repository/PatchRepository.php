@@ -21,7 +21,7 @@ class PatchRepository extends ServiceEntityRepository
         return $this->findOneBy(['numero' => $numero]);
     }
 
-    public function findMostRecentEntry(): ?Patch
+    public function findMostRecentEntry(): ?string
     {
         $qb = $this->createQueryBuilder('p')
         ->orderBy('p.created_at', 'DESC')
@@ -29,7 +29,12 @@ class PatchRepository extends ServiceEntityRepository
         ->getQuery()
         ->getOneOrNullResult();
 
-        return $qb;
+        /** @var Patch $qb */
+        if($qb){
+            return $qb->getNumero();
+        } else return null;
+
+
     }
 
     public function save (Patch $patch): void

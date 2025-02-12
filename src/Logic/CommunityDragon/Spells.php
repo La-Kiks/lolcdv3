@@ -91,7 +91,7 @@ class Spells
                         cooldowns: $cooldowns
                     );
 
-                    // TODO : Check if the spell already exists in the DB
+
                     // If the spell exits I want to compare the cooldown arrays & update them prolly
                     // Or update if the patch is different
                     if(!$this->spellRepository->exists($spellDTO->name)){
