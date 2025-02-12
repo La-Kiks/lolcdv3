@@ -21,7 +21,7 @@ class HomeController extends AbstractController
         PatchRepository $patchRepository,
     ): Response
     {
-        $patch = $patchRepository->findMostRecentEntry()->getNumero();
+        $patch = $patchRepository->findMostRecentEntry();
         $searchData = new SearchData();
         $champions = [];
 
