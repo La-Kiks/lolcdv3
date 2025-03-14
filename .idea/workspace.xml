@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Patch fix + prod schema." />
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Prod Schema. Fix Home.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20250212100609.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Spell.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Spell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/NidaleeCougar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/NidaleeCougar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Reksai.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Reksai.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/PatchInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/PatchInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PatchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PatchRepository.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,8 +202,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PS-243.23654.168" />
-        <option value="bundled-php-predefined-a98d8de5180a-4c3855d0ab16-com.jetbrains.php.sharedIndexes-PS-243.23654.168" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PS-243.26053.13" />
+        <option value="bundled-php-predefined-a98d8de5180a-1ec7b7818973-com.jetbrains.php.sharedIndexes-PS-243.26053.13" />
       </set>
     </attachedChunks>
   </component>
@@ -221,7 +233,8 @@
       <workItem from="1738759347782" duration="8065000" />
       <workItem from="1739106844646" duration="11494000" />
       <workItem from="1739310740853" duration="418000" />
-      <workItem from="1739349982901" duration="3017000" />
+      <workItem from="1739349982901" duration="4071000" />
+      <workItem from="1741954859806" duration="4453000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -423,7 +436,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739354253695</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Prod Schema. Fix Home.">
+      <option name="closed" value="true" />
+      <created>1739354806254</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1739354806254</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,6 +474,7 @@
     <MESSAGE value="Trying to fix docker bake action." />
     <MESSAGE value="Migrations for prod" />
     <MESSAGE value="Patch fix + prod schema." />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch fix + prod schema." />
+    <MESSAGE value="Prod Schema. Fix Home." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prod Schema. Fix Home." />
   </component>
 </project>

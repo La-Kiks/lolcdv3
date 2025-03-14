@@ -62,7 +62,7 @@ class EliseSpider
                 name: $content['Characters/Elise/Spells/EliseSpiderWAbility/EliseSpiderW']['mScriptName'],
                 key: 'w',
                 imageUrl: 'https://raw.communitydragon.org/latest/game/assets/characters/elise/hud/icons2d/elisespiderw.png',
-                cooldowns: [10, 10, 10, 10, 10]
+                cooldowns: [6, 6, 6, 6, 6]
             );
             // E
             $array = $content['Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderE']['mSpell']['cooldownTime'];
@@ -99,6 +99,20 @@ class EliseSpider
                     $this->spellRepository->save($spell);
 
                     $this->logger->info(sprintf('%s %s.', 'Saving new spell', $item->name));
+                    // If spells already exists aka editing
+                } else {
+                    $spellToEdit = $this->spellRepository->findOneByName($item->name);
+
+                    $spellToEdit->setImage($item->imageUrl)
+                        ->setName($item->name)
+                        ->setCooldowns($item->cooldowns)
+                        ->setPatch($patch)
+                        ->setKeyboard($item->key)
+                    ;
+
+                    $this->spellRepository->save($spellToEdit);
+
+                    $this->logger->info(sprintf('%s %s.', 'Spell edited', $item->name));
                 }
 
             }

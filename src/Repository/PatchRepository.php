@@ -21,6 +21,10 @@ class PatchRepository extends ServiceEntityRepository
         return $this->findOneBy(['numero' => $numero]);
     }
 
+    /**
+     * Search the last Patch in the database and return its numero as string or null if there are no entries.
+     * @return string|null
+     */
     public function findMostRecentEntry(): ?string
     {
         $qb = $this->createQueryBuilder('p')

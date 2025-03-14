@@ -146,6 +146,19 @@ class Jayce
                     $this->spellRepository->save($spell);
 
                     $this->logger->info(sprintf('%s %s.', 'Saving new spell', $item->name));
+                } else {
+                    $spellToEdit = $this->spellRepository->findOneByName($item->name);
+
+                    $spellToEdit->setImage($item->imageUrl)
+                        ->setName($item->name)
+                        ->setCooldowns($item->cooldowns)
+                        ->setPatch($patch)
+                        ->setKeyboard($item->key)
+                    ;
+
+                    $this->spellRepository->save($spellToEdit);
+
+                    $this->logger->info(sprintf('%s %s.', 'Spell edited', $item->name));
                 }
 
             }

@@ -34,19 +34,20 @@ class PatchInfo
                 $lastVersion = $content[0];
 
                 if ($lastPatchFromDB = $this->patchRepository->findMostRecentEntry()) {
-                    $lastPatch = $lastPatchFromDB->getNumero();
-
-                    if ($lastPatch == $lastVersion) {
-                        $this->logger->info(sprintf('Patch is up to date : %s .', $lastVersion));
-                        return new PatchInfoDTO(toUpdate: false, numero: $lastVersion);
-                    } else {
-                        $this->logger->info(sprintf(
-                            'Online version : %s . Local version : %s .',
-                            $lastVersion,
-                            $lastPatch
-                        ));
-                        return new PatchInfoDTO(toUpdate: true, numero: $lastVersion);
+                    if($lastPatchFromDB){
+                        if ($lastPatchFromDB == $lastVersion) {
+                            $this->logger->info(sprintf('Patch is up to date : %s .', $lastVersion));
+                            return new PatchInfoDTO(toUpdate: false, numero: $lastVersion);
+                        } else {
+                            $this->logger->info(sprintf(
+                                'Online version : %s . Local version : %s .',
+                                $lastVersion,
+                                $lastPatchFromDB
+                            ));
+                            return new PatchInfoDTO(toUpdate: true, numero: $lastVersion);
+                        }
                     }
+
                     // If there is no patch in the DB - 1st use, DB reset.
                 } else {
                     $this->logger->info(sprintf('No patch in the DB, need to update to : %s .', $lastVersion));

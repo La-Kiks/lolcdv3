@@ -33,9 +33,11 @@ class Spells
         // Trackers
         $spellsCreated = 0;
         $spellsUpdated = 0;
+        $championsCount = 0;
 
         // Step 2 loop through each champion
         foreach ($champions as $champion){
+            $championsCount++;
             $url = sprintf('%s%s%s', $baseUrl, $champion->getCustomId(), '.json');
 
             try {
@@ -112,25 +114,27 @@ class Spells
 
                     } else{
                         $spellToEdit = $this->spellRepository->findOneByName($spellDTO->name);
-                        $spellToEditCooldowns = $spellToEdit->getCooldowns();
 
-                        if($spellToEditCooldowns[0] != $spellDTO->cooldowns[0]){
-                            $spellToEdit->setCooldowns($spellDTO->cooldowns)
-                                ->setPatch($patch)
-                            ;
+                        if($spellToEdit->getPatch() != $patch){
+                            $spellToEditCooldowns = $spellToEdit->getCooldowns();
 
-                            $this->spellRepository->save($spellToEdit);
-                            $this->logger->info(sprintf('%s %s.', 'Spell updated :', $spellDTO->name));
-                            $spellsUpdated++;
+                            if($spellToEditCooldowns[0] != $spellDTO->cooldowns[0]){
+                                $spellToEdit->setCooldowns($spellDTO->cooldowns)
+                                    ->setPatch($patch)
+                                ;
 
+                                $this->spellRepository->save($spellToEdit);
+                                $this->logger->info(sprintf('%s %s.', 'Spell updated :', $spellDTO->name));
+                                $spellsUpdated++;
+
+                            }
                         }
                     }
-
                 }
 
                 $this->spellRepository->flush();
 
-                $this->logger->info(sprintf('Spells info : created %s, updated %s.', $spellsCreated, $spellsUpdated));
+                $this->logger->info(sprintf('Spells info : created %s, updated %s. Champions : %s.', $spellsCreated, $spellsUpdated, $championsCount));
 
             } catch (\Exception $e) {
                 $this->logger->error(
