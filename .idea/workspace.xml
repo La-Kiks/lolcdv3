@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Prod Schema. Fix Home.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="2faa369d-1828-47e7-b820-16e57f88780b" name="Changes" comment="Bugfixes for exceptions &amp; update 25.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250212100609.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Spell.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Spell.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/CommunityDragon/Spells.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/EliseSpider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Jayce.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/NidaleeCougar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/NidaleeCougar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Irregulars/Reksai.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Irregulars/Reksai.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/PatchInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/PatchInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PatchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PatchRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +19,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;La-Kiks&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:La-Kiks/lolcdv3.git&quot;,
+    &quot;accountId&quot;: &quot;4e61f36e-dc75-4376-9d4e-6b94270c4d2b&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/assets/app.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -234,7 +236,7 @@
       <workItem from="1739106844646" duration="11494000" />
       <workItem from="1739310740853" duration="418000" />
       <workItem from="1739349982901" duration="4071000" />
-      <workItem from="1741954859806" duration="4453000" />
+      <workItem from="1741954859806" duration="5250000" />
     </task>
     <task id="LOCAL-00001" summary="Symfony &amp; Tailwind setup">
       <option name="closed" value="true" />
@@ -444,7 +446,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739354806254</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Bugfixes for exceptions &amp; update 25.5">
+      <option name="closed" value="true" />
+      <created>1741963491851</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1741963491852</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,6 +485,7 @@
     <MESSAGE value="Migrations for prod" />
     <MESSAGE value="Patch fix + prod schema." />
     <MESSAGE value="Prod Schema. Fix Home." />
-    <option name="LAST_COMMIT_MESSAGE" value="Prod Schema. Fix Home." />
+    <MESSAGE value="Bugfixes for exceptions &amp; update 25.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugfixes for exceptions &amp; update 25.5" />
   </component>
 </project>
